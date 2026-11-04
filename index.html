@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bri's Road to 67</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Road to 67">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#FFF3F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#22131D" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Caveat:wght@600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}img{max-width:100%}</style>
+</head>
+<body>
+<style>
+/* Layout: sticky pill tab bar over a single 860px column on a scattered-heart blush ground; "Today" opens first; rounded cards, heart status dots, flower doodles in the header. Layout: sticky tab bar over a single 860px column; "Today" opens first as a mission board, other tabs are tools + the counselor-ready plan. */
+:root{
+  --bg:#FFF3F6; --surface:#FFFFFF; --sunk:#FCE4EC; --ink:#3D1F35; --muted:#8C5B7A; --line:#F4CEDB;
+  --accent:#E0457B; --accent-ink:#FFFFFF; --lav:#9C7CE8; --lav-bg:#EFE7FF; --hi:#FFD3E3; --hi-ink:#5A1233;
+  --good:#3E9B6E; --warn:#D2771F; --bad:#D2335C; --good-bg:#E3F5EA; --warn-bg:#FFEBD9; --bad-bg:#FFE0E7;
+  --petal:rgba(224,69,123,.08);
+  --display:"Fredoka", "Avenir Next Rounded", "Nunito", system-ui, sans-serif;
+  --script:"Caveat", "Segoe Script", cursive;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#22131D; --surface:#2F1B29; --sunk:#1A0E16; --ink:#FCE8F0; --muted:#D2A6C0; --line:#4D2D42;
+  --accent:#FF7FA8; --accent-ink:#2A0F1C; --lav:#BCA4FF; --lav-bg:#33284D; --hi:#6A2A48; --hi-ink:#FFE3EE;
+  --good:#7FD1A3; --warn:#F5B06B; --bad:#FF7C98; --good-bg:#1D3A2B; --warn-bg:#40291A; --bad-bg:#46192A;
+  --petal:rgba(255,127,168,.07); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#22131D; --surface:#2F1B29; --sunk:#1A0E16; --ink:#FCE8F0; --muted:#D2A6C0; --line:#4D2D42;
+  --accent:#FF7FA8; --accent-ink:#2A0F1C; --lav:#BCA4FF; --lav-bg:#33284D; --hi:#6A2A48; --hi-ink:#FFE3EE;
+  --good:#7FD1A3; --warn:#F5B06B; --bad:#FF7C98; --good-bg:#1D3A2B; --warn-bg:#40291A; --bad-bg:#46192A;
+  --petal:rgba(255,127,168,.07); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background-color:var(--bg);background-image:radial-gradient(var(--petal) 1.5px,transparent 1.6px);background-size:22px 22px;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 60px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:clamp(30px,7vw,44px);font-weight:700;letter-spacing:-.01em}
+h2::before{content:"\2661  ";color:var(--accent)}
+.script{font-family:var(--script);font-size:22px;color:var(--accent);line-height:1}
+h2{font-size:23px;font-weight:600}
+h3{font-size:18px;font-weight:600}
+p{margin:0}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+mark{background:var(--hi);color:var(--hi-ink);padding:0 .25em;border-radius:.4em}
+header.top{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+.stats{display:flex;gap:10px;flex-wrap:wrap}
+.stat{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:8px 12px;min-width:84px}
+.stat b{display:block;font-family:var(--display);font-weight:600;font-size:22px;font-variant-numeric:tabular-nums;color:var(--accent)}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding-block:8px;border-bottom:1px solid var(--line);margin-bottom:20px}
+nav.tabs button{flex:none;font:600 15px var(--display);background:transparent;color:var(--muted);border:0;padding:8px 14px;border-radius:99px;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+section.view{display:grid;gap:18px}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 6px 18px -12px rgba(224,69,123,.35);display:grid;gap:12px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+button.btn,.btn{font:600 15px var(--display);border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.hi{background:var(--hi);color:var(--hi-ink);border-color:var(--hi)}
+.btn.sm{font-size:13px;padding:5px 12px}
+.btn:hover{filter:brightness(.97)}
+.btn.lav{background:var(--lav-bg);color:var(--lav);border-color:transparent}
+.btn[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:focus-visible,nav.tabs button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn.g{background:var(--good-bg);color:var(--good);border-color:transparent}
+.btn.y{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+.btn.r{background:var(--bad-bg);color:var(--bad);border-color:transparent}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.item{display:grid;gap:8px;padding:14px;border:1.5px dashed var(--line);border-radius:16px;background:var(--bg)}
+.item .head{display:flex;gap:8px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
+.chip{display:inline-block;font:600 12px var(--display);padding:2px 9px;border-radius:99px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.chip.sys{background:var(--lav-bg);color:var(--lav)}
+.dot{display:inline-block;width:14px;height:13px;background:var(--line);flex:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21.6 10.3 20C4.2 14.5 0 10.8 0 6.3 0 2.7 2.8 0 6.4 0c2 0 4 .9 5.6 2.4C13.6.9 15.6 0 17.6 0 21.2 0 24 2.7 24 6.3c0 4.5-4.2 8.2-10.3 13.7z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21.6 10.3 20C4.2 14.5 0 10.8 0 6.3 0 2.7 2.8 0 6.4 0c2 0 4 .9 5.6 2.4C13.6.9 15.6 0 17.6 0 21.2 0 24 2.7 24 6.3c0 4.5-4.2 8.2-10.3 13.7z'/%3E%3C/svg%3E") center/contain no-repeat}
+.dot.g{background:var(--good)}.dot.y{background:var(--warn)}.dot.r{background:var(--bad)}
+.empty{padding:14px;border:1.5px dashed var(--line);border-radius:16px;color:var(--muted)}
+.bar{height:10px;border-radius:99px;background:var(--sunk);overflow:hidden;position:relative}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--lav),var(--accent));border-radius:99px}
+.bar.target::after{content:"";position:absolute;top:-3px;bottom:-3px;left:67%;width:2px;background:var(--ink)}
+.meter{display:grid;grid-template-columns:minmax(90px,140px) 1fr 52px;gap:10px;align-items:center;font-size:14px}
+.meter .num{text-align:right}
+form.inline{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;align-items:end}
+label.f{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--muted)}
+input,select,textarea{font:16px var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:8px 10px;width:100%;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tablebox{overflow-x:auto}
+.phase{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.phase:last-child{border-bottom:0}
+.phase .n{font-family:var(--display);font-weight:700;font-size:28px;line-height:1;color:var(--accent)}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.rung{padding:12px;border-radius:16px;background:var(--bg);border:1.5px solid var(--line);display:grid;gap:4px}
+.rung .d{font-family:var(--mono);font-weight:700;font-size:14px;color:var(--accent)}
+ul.tight{margin:0;padding-left:20px;display:grid;gap:6px}
+.timer{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.timer .clock{font:600 38px var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.banner{padding:10px 14px;border-radius:16px;background:var(--warn-bg);color:var(--ink);font-size:14px}
+.toast{background:var(--accent)!important;color:var(--accent-ink)!important;border-radius:99px!important;position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:700;z-index:20}
+.sysgroup{display:grid;gap:8px}
+.sysgroup>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center;padding:6px 0}
+.sysgroup>summary::-webkit-details-marker{display:none}
+.trow{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.trow .t{display:flex;gap:8px;align-items:center;min-width:0;flex:1 1 220px}
+.big{font:700 46px var(--display);line-height:1;color:var(--accent)}
+.flowers{display:flex;gap:6px;align-items:center}
+.flowers svg{display:block}
+.daypick{display:flex;gap:8px;flex-wrap:wrap}
+.todo{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+.todo .tx{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.todo.done .tx{text-decoration:line-through;color:var(--muted)}
+.heartbox{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid var(--accent);background:transparent;color:var(--accent-ink);display:grid;place-items:center;cursor:pointer;padding:0;font-size:14px;line-height:1}
+.heartbox[aria-checked="true"]{background:var(--accent)}
+.heartbox:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.c-topic{background:var(--lav-bg);color:var(--lav)}.c-recall{background:var(--hi);color:var(--hi-ink)}.c-qs{background:var(--good-bg);color:var(--good)}.c-other{background:var(--sunk);color:var(--muted)}
+.sugg{display:flex;gap:6px;flex-wrap:wrap}
+.tip{position:absolute;z-index:4;background:var(--ink);color:var(--bg);font-size:13px;font-weight:700;padding:6px 10px;border-radius:10px;pointer-events:none;max-width:240px;transform:translate(-50%,-110%)}
+.pt{cursor:pointer}
+.verse{background:linear-gradient(135deg,var(--sunk),var(--lav-bg));border:0;text-align:center;justify-items:center;padding-block:22px}
+.verse h2::before{content:none}
+.verse blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(18px,4.4vw,22px);line-height:1.4;max-width:34em;text-wrap:balance}
+.verse cite{font-style:normal;font-family:var(--script);font-size:24px;color:var(--accent)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div style="display:grid;gap:4px">
+      <div class="flowers"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><g fill="var(--accent)"><circle cx="20" cy="9" r="8"/><circle cx="30.5" cy="16.6" r="8"/><circle cx="26.5" cy="29" r="8"/><circle cx="13.5" cy="29" r="8"/><circle cx="9.5" cy="16.6" r="8"/></g><circle cx="20" cy="20" r="6" fill="#FFD66B"/></svg><svg width="18" height="18" viewBox="0 0 40 40" aria-hidden="true"><g fill="var(--lav)"><circle cx="20" cy="9" r="8"/><circle cx="30.5" cy="16.6" r="8"/><circle cx="26.5" cy="29" r="8"/><circle cx="13.5" cy="29" r="8"/><circle cx="9.5" cy="16.6" r="8"/></g><circle cx="20" cy="20" r="6" fill="#FFD66B"/></svg><svg width="22" height="22" viewBox="0 0 40 40" aria-hidden="true"><g fill="var(--hi)"><circle cx="20" cy="9" r="8"/><circle cx="30.5" cy="16.6" r="8"/><circle cx="26.5" cy="29" r="8"/><circle cx="13.5" cy="29" r="8"/><circle cx="9.5" cy="16.6" r="8"/></g><circle cx="20" cy="20" r="6" fill="var(--accent)"/></svg><span class="script">you've got this, Bri</span></div>
+      <h1>Bri's Road to <mark>67</mark> <span style="color:var(--accent)">&#9825;</span></h1>
+      <span class="label">CBSE remediation · Bootcamp + UWorld + Sketchy</span>
+    </div>
+    <div class="stats" id="stats"></div>
+  </header>
+  <div id="dbnote" class="banner" hidden>This phone couldn't save your progress. If you're in a private Safari tab, open the app from your home screen instead.</div>
+
+  <nav class="tabs" role="tablist" id="tabs">
+    <button role="tab" data-v="today" aria-selected="true">Today</button>
+    <button role="tab" data-v="topics" aria-selected="false">Topics</button>
+    <button role="tab" data-v="uworld" aria-selected="false">UWorld log</button>
+    <button role="tab" data-v="misses" aria-selected="false">Miss log</button>
+    <button role="tab" data-v="scores" aria-selected="false">Self-assessments</button>
+    <button role="tab" data-v="plan" aria-selected="false">The plan</button>
+  </nav>
+
+  <section class="view" id="v-today"></section>
+  <section class="view" id="v-topics" hidden></section>
+  <section class="view" id="v-uworld" hidden></section>
+  <section class="view" id="v-misses" hidden></section>
+  <section class="view" id="v-scores" hidden></section>
+  <section class="view" id="v-plan" hidden></section>
+</div>
+<div class="toast" id="toast" hidden></div>
+<input type="file" id="bk-file" accept=".json,application/json" hidden>
+
+<script>
+/* ---------- Curriculum (study order = priority order) ---------- */
+const SYSTEMS = [
+  {id:"renal", name:"Renal", phase:1, sketchy:"Sketchy Pharm: diuretics, ACE inhibitors/ARBs. Sketchy Micro: UTI bugs (E. coli, Proteus, Klebsiella).",
+   topics:["Renal anatomy & embryology","Filtration, GFR & clearance","Tubular physiology (Na, K, water handling)","Acid–base disorders","Electrolytes: Na, K, Ca, Mg, phosphate","Diuretics & renal pharm","Nephritic syndromes","Nephrotic syndromes","AKI & CKD","Kidney stones & obstruction","Cystic kidney disease & renal tumors","UTI & pyelonephritis"]},
+  {id:"resp", name:"Respiratory", phase:1, sketchy:"Sketchy Micro: pneumonia bugs, TB, fungi (Histo, Blasto, Cocci). Sketchy Pharm: asthma/COPD drugs, TB drugs.",
+   topics:["Lung anatomy & embryology","Lung volumes & mechanics","Gas exchange, V/Q & hypoxemia","O2–Hb curve & CO2 transport","Obstructive disease (asthma, COPD, bronchiectasis)","Restrictive & interstitial disease, pneumoconioses","PE & pulmonary hypertension","Lung cancer","Pneumonia & TB","Pleural disease & pneumothorax","ARDS, sleep apnea & high altitude","Respiratory pharm"]},
+  {id:"endo", name:"Endocrine", phase:2, sketchy:"Sketchy Pharm: diabetes drugs, thyroid drugs, steroids. Sketchy Path: endocrine tumors if you have it.",
+   topics:["Hypothalamus & pituitary","Thyroid physiology","Hyper/hypothyroidism & thyroid cancer","Adrenal cortex: Cushing, Addison, CAH, hyperaldo","Adrenal medulla & pheochromocytoma","Calcium, PTH & vitamin D","Diabetes mellitus & diabetes drugs","MEN syndromes & neuroendocrine tumors","Endocrine pharm"]},
+  {id:"repro", name:"Reproductive", phase:2, sketchy:"Sketchy Pharm: contraceptives, SERMs, androgens/antiandrogens. Sketchy Micro: STIs (Chlamydia, Gonorrhea, Syphilis, HPV, HSV).",
+   topics:["Repro embryology & sex development","Male physiology & pathology (testis, prostate)","Female hormones & menstrual cycle","Pregnancy physiology & complications","Ovarian pathology & tumors","Uterine & cervical pathology","Breast pathology","STIs","Repro pharm (contraceptives, hormones)"]},
+  {id:"neuro", name:"Neuro", phase:3, sketchy:"Sketchy Pharm: antiepileptics, Parkinson drugs, anesthetics, opioids. Sketchy Micro: meningitis bugs, prions, JC virus.",
+   topics:["Neuroanatomy & lesion localization","Cranial nerves & brainstem","Stroke & vascular syndromes","Seizures & antiepileptics","Neurodegeneration & dementia","Demyelinating & neuromuscular disease","CNS infections","Brain tumors","Headache, CSF & hydrocephalus","Eye & ear","Anesthetics & opioids"]},
+  {id:"psych", name:"Psych", phase:3, sketchy:"Sketchy Pharm: antidepressants, antipsychotics, lithium, benzos, ADHD meds.",
+   topics:["Mood disorders & antidepressants","Psychotic disorders & antipsychotics","Anxiety, OCD & trauma disorders","Personality disorders","Substance use & withdrawal","Child psych & development","Sleep & eating disorders","Defense mechanisms & ethics"]},
+  {id:"cardio", name:"Cardio", phase:4, sketchy:"Sketchy Pharm: antiarrhythmics, HF drugs, lipid drugs, antihypertensives. Sketchy Micro: endocarditis bugs, rheumatic fever (Strep pyogenes).",
+   topics:["Cardiac embryology & congenital heart disease","Cardiac cycle, PV loops & Wiggers","Hemodynamics & murmurs","Atherosclerosis & ischemic heart disease","Heart failure & cardiomyopathies","Arrhythmias & ECG","Valve disease & endocarditis","Hypertension & vasculitis","Cardiac pharm"]},
+  {id:"nutr", name:"Nutrition", phase:0, sketchy:"Sketchy Biochem (if you have it): vitamin sketches. Otherwise First Aid's vitamin table, color-coded.",
+   topics:["Fat-soluble vitamins (A, D, E, K)","B1, B2, B3, B5, B6","B7, B9, B12 & vitamin C","Minerals: zinc, iron, copper","Malnutrition & fed/fasting metabolism"]},
+];
+const ALL_TOPICS = [];
+SYSTEMS.forEach(s=>s.topics.forEach((t,i)=>ALL_TOPICS.push({id:s.id+"-"+(i+1), sys:s.id, name:t})));
+const SYS = Object.fromEntries(SYSTEMS.map(s=>[s.id,s]));
+/* NASB 2020 text, checked against BibleGateway. Her own verses (db "verses") join this pool. */
+const VERSES=[
+["Isaiah 40:31","Yet those who wait for the LORD Will gain new strength; They will mount up with wings like eagles, They will run and not get tired, They will walk and not become weary."],
+["Colossians 3:23","Whatever you do, do your work heartily, as for the Lord and not for people,"],
+["Deuteronomy 31:6","Be strong and courageous, do not be afraid or in dread of them, for the LORD your God is the One who is going with you. He will not desert you or abandon you."],
+["Isaiah 43:2","When you pass through the waters, I will be with you; And through the rivers, they will not overflow you. When you walk through the fire, you will not be scorched, Nor will the flame burn you."],
+["John 14:27","Peace I leave you, My peace I give you; not as the world gives, do I give to you. Do not let your hearts be troubled, nor fearful."],
+];
+function versePool(){return VERSES.concat(S.verses.slice().sort((a,b)=>a.id.localeCompare(b.id)).map(v=>[v.ref,v.text]))}
+function verseFor(dateIso){const pool=versePool();const [y,m,d]=dateIso.split("-").map(Number);const n=Math.floor(Date.UTC(y,m-1,d)/864e5);return pool[((n%pool.length)+pool.length)%pool.length]}
+
+/* Day types: her rotation schedule changes week to week, so she picks how much room today has. */
+const DAYTYPES={
+  full:{label:"Full day",note:"Around 12 hours. Big progress day, with real breaks between sprints.",items:["Clear the reviews due","2–3 new Bootcamp topics, each with its 10–20 Tutor Qs","1 timed mixed block (40 Qs) from systems you've covered","Go over the block, log misses, rewatch Sketchy for missed drugs and bugs","Miss flashback + a nutrition snack"]},
+  half:{label:"Half day",note:"Around 6 hours. One or two new things, plus keeping up.",items:["Clear the reviews due","1–2 new Bootcamp topics + their Tutor Qs","20-Q timed block from systems you've covered","Log your misses","Miss flashback"]},
+  clinic:{label:"Clinic day",note:"Around 3–4 hours. Short and sweet.",items:["Clear the reviews due (start with the shortest)","Miss flashback: 3 quick ones","10–20 UWorld Qs, Tutor or Timed, any system you've covered"]},
+  catchup:{label:"Catch-up day",note:"No new topics today. Just chip away at what's waiting, oldest first. Your to-do list shows only 5 at a time.",items:["Start with the shortest ones: blurts and teach-backs take about 5 minutes","Do the oldest reviews first","Stop when you hit your limit. Whatever's left just waits, nothing is lost","No new Bootcamp topics until you feel caught up"]},
+  off:{label:"Day off",note:"Rest day, no studying. Your streak is safe. Reviews will wait for you.",items:["Read today's verse","Rest, move, see your people. Rest is part of the plan"]},
+};
+function dayType(){const d=S.days.find(x=>x.id===today());return d?d.type:""}
+function setDayType(t){save("days",today(),{type:t})}
+const DISCIPLINES = ["Pathology","Physiology","Pharmacology","Microbiology","Biochem & Nutrition","Behavioral","Mixed"];
+const WHY = ["Didn't know it","Knew it, forgot it","Misread the question","Changed my answer","Couldn't apply it"];
+
+/* Review ladder: gaps in days between steps (day 0, 1, 3, 7, 14, 30). */
+const GAP = [0,1,2,4,7,16];
+const STEPS = [
+  {day:"Day 0", what:"UWorld, Tutor mode", how:"10–20 unused Qs: this system + Path/Phys. Read every explanation. Log misses."},
+  {day:"Day 1", what:"Blurt", how:"5 min, blank paper, dump everything you remember. Check it against First Aid. Circle gaps."},
+  {day:"Day 3", what:"UWorld, Timed", how:"10 Qs timed, this system, unused + incorrect. No peeking."},
+  {day:"Day 7", what:"Teach it back", how:"Explain it out loud in 3 minutes or draw the diagram. Then redo this topic's misses."},
+  {day:"Day 14", what:"Mixed block", how:"20 Qs timed: this system mixed with an earlier one."},
+  {day:"Day 30", what:"Lock-in blurt", how:"One last 5-min blurt. Green means it's locked in."},
+];
+
+/* ---------- Date helpers (local dates as YYYY-MM-DD) ---------- */
+const pad = n=>String(n).padStart(2,"0");
+const iso = d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const today = ()=>iso(new Date());
+const addDays = (s,n)=>{const [y,m,d]=s.split("-").map(Number);const x=new Date(y,m-1,d+n);return iso(x)};
+const nice = s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d).toLocaleDateString(undefined,{month:"short",day:"numeric"})};
+const daysBetween=(a,b)=>{const [y1,m1,d1]=a.split("-").map(Number),[y2,m2,d2]=b.split("-").map(Number);return Math.round((new Date(y2,m2-1,d2)-new Date(y1,m1-1,d1))/864e5)};
+
+/* ---------- State ---------- */
+const S = {progress:{}, blocks:[], misses:[], scores:[], verses:[], days:[], todos:[], narqb:[]};
+const LS_KEY="bri67-data-v1";
+const SEED=null;
+function persist(){try{localStorage.setItem(LS_KEY,JSON.stringify(S));return true}catch(e){toast("Couldn't save on this phone");return false}}
+function loadSaved(){let d=null;try{const raw=localStorage.getItem(LS_KEY);if(raw)d=JSON.parse(raw)}catch(e){}
+  if(!d) return;
+  Object.keys(S).forEach(k=>{if(d[k]!=null)S[k]=d[k]});}
+const esc = s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,2200)}
+
+async function save(col,id,data){
+  if(col==="progress") S.progress[id]=data;
+  else { const arr=S[col]; const i=arr.findIndex(x=>x.id===id); const row={...data,id}; if(i>=0)arr[i]=row; else arr.push(row); }
+  persist(); render();
+}
+async function remove(col,id){
+  if(col==="progress") delete S.progress[id]; else S[col]=S[col].filter(x=>x.id!==id);
+  persist(); render();
+}
+const newId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+
+/* ---------- Derived numbers ---------- */
+function activityDays(){
+  const days=new Set();
+  Object.values(S.progress).forEach(p=>(p.history||[]).forEach(h=>days.add(h.d)));
+  S.blocks.forEach(b=>days.add(b.d)); S.misses.forEach(m=>days.add(m.d));
+  S.narqb.forEach(n=>days.add(n.id));
+  return days;
+}
+function streak(){
+  /* Days marked "Day off" don't break the streak; they just don't add to it. */
+  const days=activityDays(), off=new Set(S.days.filter(x=>x.type==="off").map(x=>x.id));
+  let d=today(), n=0;
+  if(!days.has(d)) d=addDays(d,-1);
+  while(days.has(d)||off.has(d)){ if(days.has(d)) n++; d=addDays(d,-1); }
+  return n;
+}
+function xp(){
+  let x=0;
+  Object.values(S.progress).forEach(p=>{const h=p.history||[];x+=(p.watching?0:15)+h.filter(e=>String(e.ev).startsWith("step")).length*10});
+  S.blocks.forEach(b=>x+=5+Math.round((+b.correct||0)/2));
+  S.misses.forEach(m=>x+=3+(m.fixed?5:0));
+  S.todos.forEach(t=>x+=t.done?2:0);
+  x+=S.narqb.length*3;
+  return Math.max(0,x);
+}
+function pct(rows){const n=rows.reduce((a,b)=>a+(+b.n||0),0),c=rows.reduce((a,b)=>a+(+b.correct||0),0);return n?{p:Math.round(100*c/n),n}:null}
+const tone=p=>p==null?"":p>=67?"g":p>=55?"y":"r";
+function nextTopic(){return ALL_TOPICS.find(t=>!S.progress[t.id] && t.sys!=="nutr")}
+function nextNutrition(){return ALL_TOPICS.find(t=>(!S.progress[t.id]||S.progress[t.id].watching) && t.sys==="nutr")}
+function dueList(){
+  const t=today();
+  return ALL_TOPICS.filter(x=>{const p=S.progress[x.id];return p && !p.retired && !p.watching && p.due<=t})
+    .sort((a,b)=>S.progress[a.id].due.localeCompare(S.progress[b.id].due));
+}
+
+/* ---------- Actions ---------- */
+/* Starting a topic = starting its Bootcamp videos. Finishing them unlocks review 1 (Day-0 questions). */
+function isEmpty(){return !Object.keys(S.progress).length&&!S.misses.length&&!S.blocks.length&&!S.scores.length&&!S.todos.length}
+function startTopic(id){
+  const t=today();
+  save("progress",id,{start:t,stage:-1,watching:true,due:t,conf:"",retired:false,history:[{d:t,ev:"started"}]});
+  toast("Started ♡ it's on your to-do list as \"Watch\"");
+}
+function finishWatching(id){
+  const p=structuredClone(S.progress[id]); const t=today();
+  p.watching=false; p.stage=0; p.due=t; p.history=[...(p.history||[]),{d:t,ev:"watched"}];
+  save("progress",id,p);
+  toast("+15 XP · your first questions for it are on the list");
+}
+function review(id,conf){
+  const p=structuredClone(S.progress[id]); const t=today();
+  p.history=[...(p.history||[]),{d:t,ev:"step"+p.stage,conf}];
+  p.conf=conf;
+  if(conf==="r"){ p.stage=Math.max(1,p.stage); p.due=addDays(t,1); }
+  else{
+    p.stage+=1;
+    if(p.stage>=STEPS.length){p.retired=true; p.due="9999-12-31"}
+    else{ const g=GAP[p.stage]; p.due=addDays(t, conf==="y"?Math.max(1,Math.floor(g/2)):g); }
+  }
+  save("progress",id,p);
+  toast(p.retired?"Locked in! +10 XP":conf==="r"?"No stress, it comes back tomorrow":"+10 XP · next review "+nice(p.due));
+}
+
+/* ---------- Views ---------- */
+function statsBar(){
+  const sc=S.scores.slice().sort((a,b)=>a.d.localeCompare(b.d)); const last=sc[sc.length-1];
+  const lvl=Math.floor(xp()/100)+1;
+  document.getElementById("stats").innerHTML=`
+   <div class="stat"><span class="label">Streak</span><b>${streak()}d</b></div>
+   <div class="stat"><span class="label">Level ${lvl}</span><b>${xp()} XP</b></div>
+   <div class="stat"><span class="label">Last SA</span><b>${last?last.pct+"%":"–"}</b></div>`;
+}
+
+let timer={left:25*60,len:25*60,run:false,h:null};
+/* To-do list: built automatically from started topics (each one's next review step and due date), plus her own tasks. */
+const TODO_CATS={topic:"Topic",recall:"Active recall",qs:"Questions",other:"Other"};
+let ratingFor=null;
+function stepDetail(t,stage){
+  const sys=SYS[t.sys].name, subj=t.sys==="nutr"?"Biochemistry (nutrition)":"Pathology + Physiology (+ Pharm if drugs came up)";
+  const mc=S.misses.filter(m=>!m.fixed&&m.topic===t.id&&m.qid).map(m=>m.qid);
+  return [
+    `UWorld → Create Test → Tutor · Unused · System: ${sys} · Subjects: ${subj} · 10–20 Qs. Read every explanation and log misses.`,
+    `Blank paper, 5 minutes: write everything you remember about ${t.name}. Then check it against First Aid and circle the gaps.`,
+    `UWorld → Create Test → Timed · Unused + Incorrect · System: ${sys} · 10 Qs.`,
+    `Explain ${t.name} out loud in 3 minutes, or draw it.${mc.length?` Then redo your misses: Q ${mc.join(", ")}.`:""}`,
+    `UWorld → Create Test → Timed · System: ${sys} + one earlier system · 20 Qs.`,
+    `Final 5-minute blurt on ${t.name}. If it feels solid, it's locked in.`,
+  ][stage];
+}
+function stepCat(stage){return [0,2,4].includes(stage)?"qs":"recall"}
+function dueLabel(d){const n=daysBetween(today(),d);return n<0?`Waiting ${-n}d`:n===0?"Due today":n===1?"Due tomorrow":"Due "+nice(d)}
+function todoCard(){
+  const t0=today(), wk=addDays(t0,7);
+  const watching=ALL_TOPICS.filter(t=>S.progress[t.id]?.watching);
+  const active=ALL_TOPICS.filter(t=>{const p=S.progress[t.id];return p&&!p.retired&&!p.watching}).sort((a,b)=>S.progress[a.id].due.localeCompare(S.progress[b.id].due));
+  const now=active.filter(t=>S.progress[t.id].due<=t0), soon=active.filter(t=>{const d=S.progress[t.id].due;return d>t0&&d<=wk}), later=active.filter(t=>S.progress[t.id].due>wk);
+  const nt=nextTopic(), openQ=S.misses.filter(m=>!m.fixed&&m.qid).length;
+  const own=S.todos.filter(t=>!t.done).sort((a,b)=>(a.created||"").localeCompare(b.created||""));
+  const ownDone=S.todos.filter(t=>t.done).sort((a,b)=>(b.doneAt||"").localeCompare(a.doneAt||""));
+  const rev=t=>{const p=S.progress[t.id],st=STEPS[p.stage],late=p.due<t0;
+    return `<div class="todo" data-tid="${t.id}"><button class="heartbox" role="checkbox" aria-checked="false" aria-label="Done: ${esc(st.what)} for ${esc(t.name)}" data-chk="${t.id}"></button>
+     <div class="tx" style="display:grid;gap:4px"><div><b>${st.what}:</b> ${esc(t.name)}</div>
+      <div class="row" style="gap:6px"><span class="chip c-${stepCat(p.stage)}">${TODO_CATS[stepCat(p.stage)]}</span><span class="chip sys">${SYS[t.sys].name}</span><span class="chip" style="${late?"background:var(--warn-bg);color:var(--warn)":p.due===t0?"background:var(--hi);color:var(--hi-ink)":""}">${dueLabel(p.due)}</span><span class="small muted">Review ${p.stage+1} of 6</span></div>
+      <span class="small muted">${esc(stepDetail(t,p.stage))}</span>
+      ${ratingFor===t.id?`<div class="row"><span class="small"><b>How solid did it feel?</b></span><button class="btn sm g" data-rev="${t.id}" data-c="g">Solid</button><button class="btn sm y" data-rev="${t.id}" data-c="y">Shaky</button><button class="btn sm r" data-rev="${t.id}" data-c="r">Lost</button><button class="btn sm" data-chk="">Cancel</button></div>`:""}
+     </div></div>`};
+  const own_row=t=>`<div class="todo ${t.done?"done":""}"><button class="heartbox" role="checkbox" aria-checked="${!!t.done}" aria-label="${t.done?"Mark not done":"Mark done"}: ${esc(t.text)}" data-todo="${t.id}">${t.done?"&#9829;":""}</button>
+    <div class="tx">${esc(t.text)} <span class="chip c-${t.cat in TODO_CATS?t.cat:"other"}">${TODO_CATS[t.cat]||"Other"}</span></div>
+    <button class="btn sm" data-del="todos:${t.id}" aria-label="Delete ${esc(t.text)}">&times;</button></div>`;
+  const watchRow=t=>`<div class="todo"><button class="heartbox" role="checkbox" aria-checked="false" aria-label="Finished watching ${esc(t.name)}" data-watched="${t.id}"></button>
+     <div class="tx" style="display:grid;gap:4px"><div><b>Watch Bootcamp:</b> ${esc(t.name)}</div>
+      <div class="row" style="gap:6px"><span class="chip c-topic">Topic</span><span class="chip sys">${SYS[t.sys].name}</span><span class="small muted">Started ${nice(S.progress[t.id].start)}</span></div>
+      <span class="small muted">Watch at 1.25–1.5× with First Aid open. Pause halfway and say the main idea out loud. Check it off when you finish the videos, and your first questions for it show up.</span></div></div>`;
+  const nextRow=nt&&!watching.length?`<div class="todo"><span class="heartbox" aria-hidden="true" style="border-style:dashed"></span>
+     <div class="tx" style="display:grid;gap:4px"><div><b>Up next:</b> ${esc(nt.name)}</div>
+      <div class="row" style="gap:6px"><span class="chip c-topic">Topic</span><span class="chip sys">${SYS[nt.sys].name}</span><button class="btn sm primary" data-start="${nt.id}">Start videos</button></div></div></div>`:"";
+  const missRow=openQ?`<div class="todo"><span class="heartbox" aria-hidden="true" style="border-style:dashed"></span><div class="tx" style="display:grid;gap:4px"><div><b>Redo missed questions:</b> ${openQ} open</div>
+      <div class="row" style="gap:6px"><span class="chip c-qs">Questions</span><button class="btn sm lav" data-goto="misses">Open Miss log</button></div></div></div>`:"";
+  const catchup=dayType()==="catchup";
+  const shown=catchup?now.slice(0,5):now, rest=catchup?now.slice(5):[];
+  /* Daily NARQB warm-up: 10–15 Qs on every study day (not Day off or Catch-up day). */
+  const dtNow=dayType(), nq=S.narqb.find(x=>x.id===t0), showNarqb=!["off","catchup"].includes(dtNow)||nq;
+  const wkDays=S.narqb.filter(x=>daysBetween(x.id,t0)>=0&&daysBetween(x.id,t0)<7).length;
+  const narqbRow=showNarqb?`<div class="todo ${nq?"done":""}"><button class="heartbox" role="checkbox" aria-checked="${!!nq}" aria-label="Daily NARQB questions done" data-narqb="1">${nq?"&#9829;":""}</button>
+     <div class="tx" style="display:grid;gap:4px"><div><b>Daily NARQB:</b> 10–15 questions</div>
+      <div class="row" style="gap:6px"><span class="chip c-recall">Active recall</span><span class="chip">Every day</span><span class="small muted">${wkDays}/7 days this week</span></div>
+      ${nq?(nq.n?`<span class="small muted" style="text-decoration:none">Logged: ${nq.correct??"?"} of ${nq.n} correct</span>`:`<form class="row" id="fnarqb" style="gap:6px"><input id="nq-c" type="number" min="0" max="200" placeholder="Correct" style="width:90px" aria-label="Correct"><input id="nq-n" type="number" min="1" max="200" placeholder="Out of" style="width:90px" aria-label="Out of"><button class="btn sm" type="submit">Save score</button></form>`)
+        :`<span class="small muted">A quick warm-up at <a href="https://narqb.com" target="_blank" rel="noopener" style="color:var(--accent)">narqb.com</a>, about 15–20 minutes. It picks your questions and brings misses back on its own, so you don't need to log NARQB misses here. Keep the Miss log for UWorld.</span>`}
+     </div></div>`:"";
+  const nowCount=now.length+watching.length+(nt&&!watching.length&&!catchup?1:0)+own.length+(narqbRow&&!nq?1:0);
+  return `<div class="card">
+   <div class="row" style="justify-content:space-between"><h2>My to-do list</h2>${now.length>1?`<button class="btn sm hi" id="pick">Pick one for me</button>`:""}</div>
+   <p class="small muted">This fills itself in from the topics you've started. Start a topic's videos and it shows up here as "Watch." When you finish the videos, check it off and its questions appear. Check a review off and rate how it felt, and its next step appears with a new due date. Missed a few days? Everything just waits here.</p>
+   <div><span class="label">Do now · ${nowCount}</span>
+    ${catchup?`<p class="small" style="margin-block:6px"><b>Catch-up day:</b> just these ${shown.length}. One at a time ♡</p>`:""}
+    ${narqbRow}${watching.map(watchRow).join("")}${shown.map(rev).join("")}${rest.length?`<details><summary class="small muted" style="cursor:pointer">${rest.length} more waiting, no rush</summary>${rest.map(rev).join("")}</details>`:""}${catchup?"":nextRow}${own.map(own_row).join("")}${missRow}
+    ${!now.length&&!watching.length&&(!nextRow||catchup)&&!own.length?`<div class="empty">All caught up ♡</div>`:""}</div>
+   ${soon.length?`<div><span class="label">Coming up this week · ${soon.length}</span>${soon.map(rev).join("")}</div>`:""}
+   ${later.length?`<details><summary class="label" style="cursor:pointer">Later · ${later.length}</summary>${later.map(rev).join("")}</details>`:""}
+   <details><summary class="small muted" style="cursor:pointer">+ Add my own task</summary>
+   <form class="inline" id="ftodo" style="grid-template-columns:minmax(0,1fr) auto;margin-top:10px">
+     <label class="f" style="min-width:0;grid-column:1/-1">New task<input id="td-text" required maxlength="160" placeholder="e.g. Annotate First Aid acid–base page"></label>
+     <label class="f">Type<select id="td-cat">${Object.entries(TODO_CATS).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select></label>
+     <button class="btn primary" type="submit">Add</button>
+   </form></details>
+   ${ownDone.length?`<details><summary class="small muted" style="cursor:pointer">My finished tasks (${ownDone.length})</summary>${ownDone.map(own_row).join("")}<div class="row" style="margin-top:8px"><button class="btn sm" id="cleardone">Clear finished tasks</button></div></details>`:""}
+  </div>`;
+}
+function toggleTodo(id){
+  const t=S.todos.find(x=>x.id===id); if(!t) return;
+  const {id:_,...rest}=t; const nowDone=!t.done;
+  save("todos",id,{...rest,done:nowDone,doneAt:nowDone?today():""});
+  if(nowDone && t.topic && !S.progress[t.topic]) startTopic(t.topic);
+  else if(nowDone) toast("Checked off ♡ +2 XP");
+}
+function vToday(){
+  const due=dueList(), nt=nextTopic(), nn=nextNutrition();
+  const unfixed=S.misses.filter(m=>!m.fixed);
+  const flash=unfixed.slice().sort(()=>Math.random()-.5).slice(0,3);
+  const dueHtml=due.length?due.map(t=>{const p=S.progress[t.id],st=STEPS[p.stage];const late=daysBetween(p.due,today());
+    return `<div class="item"><div class="head"><div style="display:grid;gap:2px;min-width:0"><strong>${esc(t.name)}</strong>
+      <span class="small muted">${st.day} · <b>${st.what}</b>${late>0?` · ${late}d late`:""}</span></div><span class="chip sys">${SYS[t.sys].name}</span></div>
+      <p class="small">${st.how}</p>
+      <div class="row"><span class="small muted">How solid did it feel?</span>
+      <button class="btn sm g" data-rev="${t.id}" data-c="g">Solid</button>
+      <button class="btn sm y" data-rev="${t.id}" data-c="y">Shaky</button>
+      <button class="btn sm r" data-rev="${t.id}" data-c="r">Lost</button></div></div>`}).join("")
+    :`<div class="empty">Nothing due. Start a new Bootcamp topic below, and its reviews will line up here on their own.</div>`;
+  const vs=verseFor(today()), dt=dayType();
+  const dateLabel=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
+  document.getElementById("v-today").innerHTML=`
+   <div class="card verse">
+     <span class="label">${dateLabel}</span>
+     <blockquote>${esc(vs[1])}</blockquote>
+     <cite>${esc(vs[0])} (NASB)</cite>
+     <details style="width:100%;text-align:left"><summary class="small muted" style="cursor:pointer;text-align:center">Add a verse I love</summary>
+       <form class="inline" id="fverse" style="margin-top:10px">
+         <label class="f">Reference<input id="vr-ref" required maxlength="40" placeholder="e.g. Psalm 46:5"></label>
+         <label class="f" style="grid-column:1/-1">Verse (NASB 2020)<textarea id="vr-text" required maxlength="600" rows="3"></textarea></label>
+         <button class="btn primary" type="submit">Add to my verses</button>
+       </form>
+       ${S.verses.length?`<div style="margin-top:8px">${S.verses.map(v=>`<div class="trow"><div class="t"><span class="dot"></span><span>${esc(v.ref)}</span></div><button class="btn sm" data-del="verses:${v.id}">Delete</button></div>`).join("")}</div>`:""}
+     </details>
+     <p class="muted" style="font-size:11px">Scripture taken from the NASB®, New American Standard Bible®, Copyright © 1960, 1971, 1977, 1995, 2020 by The Lockman Foundation. Used by permission. All rights reserved. lockman.org</p>
+   </div>
+   ${isEmpty()?`<div class="card" style="border-color:var(--accent)"><h2>Welcome to your app!</h2><p class="small">Bring over everything you logged before. Tap the button, then pick the backup file Claude sent you (it's in your Files app if you saved it there).</p><div class="row"><button class="btn primary" id="bk-load" data-armed="1">Bring over my progress</button></div></div>`:""}
+   ${todoCard()}
+   <div class="card">
+     <h2>What kind of day is it?</h2>
+     <div class="daypick">${Object.entries(DAYTYPES).map(([k,d])=>`<button class="btn" data-day="${k}" aria-pressed="${dt===k}">${d.label}</button>`).join("")}</div>
+     ${dt?`<p class="small muted">${DAYTYPES[dt].note}</p><ul class="tight small">${DAYTYPES[dt].items.map(i=>`<li>${i}</li>`).join("")}</ul>`:`<p class="small muted">Pick one and you'll get a short menu that fits today. Any amount counts.</p>`}
+   </div>
+   <div class="grid2">
+     <div class="card">
+       <span class="label">Focus sprint</span>
+       <div class="timer"><span class="clock" id="clock"></span>
+       <div class="row"><button class="btn primary sm" id="tgo">${timer.run?"Pause":"Start"}</button>
+       <button class="btn sm" data-len="25">25 min</button><button class="btn sm" data-len="45">45 min</button><button class="btn sm" data-len="5">5 min break</button></div></div>
+       <p class="small muted">One task per sprint. Phone in another room. When it rings, stand up and move.</p>
+     </div>
+   </div>
+   <div class="grid2">
+     <div class="card">
+       <span class="label">Miss flashback</span>
+       ${flash.length?flash.map(m=>`<div class="item"><div class="head"><strong>${esc(m.concept)}</strong><span class="chip sys">${esc(SYS[m.sys]?.name||m.sys)}</span></div>
+         <p class="small muted">Explain it out loud in one breath${m.qid?`, then redo UWorld Q <b class="num">${esc(m.qid)}</b>`:""}. Then tap.</p>
+         <div class="row"><button class="btn sm g" data-fix="${m.id}">Got it now</button></div></div>`).join("")
+       :`<div class="empty">Log a UWorld miss in the Miss log and it shows up here as a 30-second quiz.</div>`}
+     </div>
+     <div class="card">
+       <span class="label">Nutrition snack</span>
+       ${nn?`<h3>${esc(nn.name)}</h3><p class="small">About one a week, whenever you want an easy win. Color-code the First Aid vitamin table: deficiency in one color, excess in another. Then 10 UWorld Qs in Biochem → Nutrition.</p>
+       ${S.progress[nn.id]?.watching?`<button class="btn primary" data-watched="${nn.id}">Finished it</button>`:`<button class="btn" data-start="${nn.id}">Start this one</button>`}`:`<p>All nutrition topics started. Keep them in the review ladder.</p>`}
+     </div>
+   </div>`;
+  paintClock();
+}
+function paintClock(){const c=document.getElementById("clock");if(c)c.textContent=pad(Math.floor(timer.left/60))+":"+pad(timer.left%60)}
+function tick(){timer.left--; if(timer.left<=0){clearInterval(timer.h);timer.run=false;timer.left=timer.len;toast("Sprint done. Stand up, stretch, then go again.");render();return} paintClock()}
+
+function vTopics(){
+  const html=SYSTEMS.map(s=>{
+    const ts=ALL_TOPICS.filter(t=>t.sys===s.id); const done=ts.filter(t=>S.progress[t.id]).length;
+    const locked=ts.filter(t=>S.progress[t.id]?.retired).length;
+    const rows=ts.map(t=>{const p=S.progress[t.id];
+      const status=!p?`<button class="btn sm" data-start="${t.id}">Start videos</button>`
+        :p.watching?`<span class="chip c-topic">Watching</span><button class="btn sm primary" data-watched="${t.id}">Finished watching</button>`
+        :p.retired?`<span class="chip" style="background:var(--good-bg);color:var(--good)">Locked in</span>`
+        :`<span class="small muted">Review ${p.stage+1} of 6: ${STEPS[p.stage].what} · due ${p.due<=today()?"<b>today</b>":nice(p.due)}</span>`;
+      return `<div class="trow"><div class="t"><span class="dot ${p?.conf||""}"></span><span>${esc(t.name)}</span></div><div class="row">${status}${p?`<button class="btn sm" data-reset="${t.id}" title="Clear this topic's progress">Reset</button>`:""}</div></div>`}).join("");
+    return `<details class="card sysgroup" ${s.phase===1?"open":""}><summary><h3>${s.name} ${s.phase?`<span class="chip">Phase ${s.phase}</span>`:`<span class="chip">Weekly</span>`}</h3>
+      <span class="small muted num">${done}/${ts.length} started · ${locked} locked</span></summary>
+      <div class="bar"><i style="width:${Math.round(100*done/ts.length)}%"></i></div>
+      <p class="small muted">${esc(s.sketchy)}</p>${rows}</details>`}).join("");
+  document.getElementById("v-topics").innerHTML=`<div class="card"><p class="small">Topic names follow the usual Bootcamp order for each system. If a video name differs, go by the closest match. The dot shows how the last review felt: <span class="dot g"></span> solid, <span class="dot y"></span> shaky, <span class="dot r"></span> lost.</p></div>`+html;
+}
+
+function meters(groups){
+  return groups.map(([name,r])=>`<div class="meter"><span>${esc(name)}</span><div class="bar target"><i style="width:${r?r.p:0}%;background:var(--${r?{g:"good",y:"warn",r:"bad"}[tone(r.p)]:"line"})"></i></div><span class="num">${r?r.p+"%":"–"}</span></div>`).join("");
+}
+function vUworld(){
+  const rows=S.blocks.slice().sort((a,b)=>b.d.localeCompare(a.d));
+  const bySys=SYSTEMS.map(s=>[s.name,pct(S.blocks.filter(b=>b.sys===s.id))]);
+  const byDis=DISCIPLINES.filter(d=>d!=="Mixed").map(d=>[d,pct(S.blocks.filter(b=>b.dis===d))]);
+  const all=pct(S.blocks);
+  document.getElementById("v-uworld").innerHTML=`
+   <div class="card"><h2>Log a UWorld block</h2>
+    <form class="inline" id="fblock">
+     <label class="f">Date<input type="date" id="b-d" value="${today()}" required></label>
+     <label class="f">System<select id="b-sys">${SYSTEMS.map(s=>`<option value="${s.id}">${s.name}</option>`).join("")}<option value="mixed">Mixed systems</option></select></label>
+     <label class="f">Subject<select id="b-dis">${DISCIPLINES.map(d=>`<option>${d}</option>`).join("")}</select></label>
+     <label class="f">Mode<select id="b-mode"><option>Tutor</option><option>Timed</option></select></label>
+     <label class="f">Questions<input type="number" id="b-n" min="1" max="80" value="20" required></label>
+     <label class="f">Correct<input type="number" id="b-c" min="0" max="80" required></label>
+     <button class="btn primary" type="submit">Save block</button>
+    </form></div>
+   <div class="grid2">
+    <div class="card"><div class="row" style="justify-content:space-between"><h3>By system</h3><span class="small muted">line = 67%</span></div>${meters(bySys)}</div>
+    <div class="card"><div class="row" style="justify-content:space-between"><h3>By subject</h3><span class="small muted">${all?`overall <b class="num">${all.p}%</b> of ${all.n}`:""}</span></div>${meters(byDis)}</div>
+   </div>
+   <div class="card"><h3>Blocks</h3>${rows.length?`<div class="tablebox"><table><thead><tr><th>Date</th><th>System</th><th>Subject</th><th>Mode</th><th>Score</th><th></th></tr></thead><tbody>
+    ${rows.map(b=>{const p=Math.round(100*b.correct/b.n);return `<tr><td class="num">${nice(b.d)}</td><td>${esc(SYS[b.sys]?.name||"Mixed")}</td><td>${esc(b.dis)}</td><td>${esc(b.mode)}</td><td class="num"><span class="dot ${tone(p)}"></span> ${b.correct}/${b.n} · ${p}%</td><td><button class="btn sm" data-del="blocks:${b.id}">Delete</button></td></tr>`}).join("")}
+    </tbody></table></div>`:`<div class="empty">No blocks yet. After each UWorld block, log the score here and your weakest system and subject show up above.</div>`}</div>`;
+}
+
+function topicOptions(sys){return `<option value="">Not sure</option>`+ALL_TOPICS.filter(t=>t.sys===sys).map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join("")}
+function vMisses(){
+  const rows=S.misses.slice().sort((a,b)=>b.d.localeCompare(a.d));
+  const whyCounts=WHY.map(w=>[w,S.misses.filter(m=>m.why===w).length]);
+  const tCount={}; S.misses.filter(m=>!m.fixed&&m.topic).forEach(m=>tCount[m.topic]=(tCount[m.topic]||0)+1);
+  const hot=Object.entries(tCount).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const openQ=S.misses.filter(m=>!m.fixed&&m.qid).map(m=>m.qid);
+  const max=Math.max(1,...whyCounts.map(x=>x[1]));
+  document.getElementById("v-misses").innerHTML=`
+   <div class="card"><h2>Log a miss</h2><p class="small muted">One line per wrong or guessed question. UWorld shows the system, subject and topic at the bottom of each explanation, so copy them from there. Write the rule you should have known, not the question. Example: "Loop diuretics → hypokalemia + metabolic alkalosis".</p>
+    <form class="inline" id="fmiss">
+     <label class="f" style="grid-column:1/-1">The rule I missed<input id="m-c" required maxlength="200" placeholder="e.g. RTA type 1: can't secrete H+, urine pH > 5.5, stones"></label>
+     <label class="f">UWorld question ID<input id="m-q" inputmode="numeric" maxlength="12" placeholder="e.g. 1234"></label>
+     <label class="f">System<select id="m-sys">${SYSTEMS.map(s=>`<option value="${s.id}">${s.name}</option>`).join("")}</select></label>
+     <label class="f">Topic<select id="m-topic">${topicOptions(SYSTEMS[0].id)}</select></label>
+     <label class="f">Subject<select id="m-dis">${DISCIPLINES.filter(d=>d!=="Mixed").map(d=>`<option>${d}</option>`).join("")}</select></label>
+     <label class="f">Why I missed it<select id="m-why">${WHY.map(w=>`<option>${w}</option>`).join("")}</select></label>
+     <button class="btn primary" type="submit">Save miss</button>
+    </form></div>
+   <div class="grid2">
+   <div class="card"><h3>Redo your misses in UWorld</h3>
+    <p class="small muted">${openQ.length?`${openQ.length} open miss${openQ.length>1?"es have":" has"} a question ID. Copy them, then in UWorld go to Create Test and choose the option to build a test from question IDs (it may be labeled Custom).`:"Add question IDs to your misses and you can copy them all here to make a redo test in UWorld."}</p>
+    ${openQ.length?`<p class="num small" id="qids" style="overflow-wrap:anywhere">${esc(openQ.join(", "))}</p><button class="btn primary" id="copyq">Copy question IDs</button>`:""}
+   </div>
+   <div class="card"><h3>Topics with the most open misses</h3>
+    ${hot.length?hot.map(([id,n])=>{const t=ALL_TOPICS.find(x=>x.id===id);return `<div class="trow"><div class="t"><span class="dot r"></span><span>${esc(t?t.name:id)}</span></div><span class="chip sys">${n} miss${n>1?"es":""}</span></div>`}).join(""):`<div class="empty">Pick a topic when you log a miss and your trouble spots line up here.</div>`}
+   </div>
+   </div>
+   <div class="card"><h3>Why you miss questions</h3>
+    ${whyCounts.map(([w,n])=>`<div class="meter"><span>${w}</span><div class="bar"><i style="width:${100*n/max}%"></i></div><span class="num">${n}</span></div>`).join("")}
+    <p class="small muted">Mostly "Didn't know it": more content review. Mostly "Misread" or "Changed my answer": a test-taking issue, so slow down on the last line of the stem and stick with your first answer unless you find a clear reason.</p></div>
+   <div class="card"><h3>All misses <span class="num muted">${rows.filter(m=>!m.fixed).length} open</span></h3>
+    ${rows.length?rows.map(m=>`<div class="trow"><div class="t"><span class="dot ${m.fixed?"g":"r"}"></span><span>${esc(m.concept)}</span></div>
+     <div class="row"><span class="chip sys">${esc(SYS[m.sys]?.name)}</span>${m.qid?`<span class="chip">Q ${esc(m.qid)}</span>`:""}${m.topic?`<span class="chip">${esc(ALL_TOPICS.find(x=>x.id===m.topic)?.name||"")}</span>`:""}<span class="chip">${esc(m.dis)}</span><span class="chip">${esc(m.why)}</span>
+     <button class="btn sm" data-fix="${m.id}">${m.fixed?"Reopen":"Got it now"}</button><button class="btn sm" data-del="misses:${m.id}">Delete</button></div></div>`).join("")
+     :`<div class="empty">Your misses will collect here and feed the flashback on the Today tab.</div>`}</div>`;
+}
+
+/* Readiness: recency-weighted trend of her own NBME scores, projected 7 and 30 days out. */
+function forecast(rows){
+  if(!rows.length) return null;
+  const last=rows[rows.length-1], t0=rows[0].d;
+  const xs=rows.map(r=>daysBetween(t0,r.d)), ys=rows.map(r=>+r.pct), xl=xs[xs.length-1];
+  const ws=xs.map(x=>Math.pow(.5,(xl-x)/30));
+  let slope=0, fitAt=x=>ys[ys.length-1], spread=6;
+  if(rows.length>=2 && xl>0){
+    const W=ws.reduce((a,b)=>a+b,0), mx=xs.reduce((a,x,i)=>a+ws[i]*x,0)/W, my=ys.reduce((a,y,i)=>a+ws[i]*y,0)/W;
+    const sxx=xs.reduce((a,x,i)=>a+ws[i]*(x-mx)**2,0), sxy=xs.reduce((a,x,i)=>a+ws[i]*(x-mx)*(ys[i]-my),0);
+    const raw=sxx?sxy/sxx:0; slope=Math.max(-.2,Math.min(.35,raw));
+    fitAt=x=>my+slope*(x-mx);
+    const rmse=Math.sqrt(ys.reduce((a,y,i)=>a+ws[i]*(y-fitAt(xs[i]))**2,0)/W);
+    spread=Math.max(4,Math.round(rmse))+(rows.length<3?3:0);
+  }
+  const base=(ys[ys.length-1]+fitAt(xl))/2;
+  const daysSinceLast=daysBetween(last.d,today());
+  const at=n=>{const v=base+slope*(daysSinceLast+n);return {v:Math.round(Math.max(0,Math.min(100,v))),lo:Math.round(Math.max(0,v-spread)),hi:Math.round(Math.min(100,v+spread)),d:addDays(today(),n)}};
+  return {slope, base, spread, w1:at(7), m1:at(30), lastD:last.d};
+}
+function readiness(rows,fc){
+  if(!rows.length) return {k:"none",label:"Not enough data yet",tone:"muted"};
+  const l2=rows.slice(-2);
+  if(l2.length===2 && l2.every(r=>+r.pct>=67)) return {k:"ready",label:"Ready to book the CBSE",tone:"good"};
+  if(+rows[rows.length-1].pct>=67) return {k:"almost",label:"You hit 67! One more to confirm",tone:"good"};
+  if(fc.m1.v>=67) return {k:"track",label:"On track for 67 within a month",tone:"good"};
+  if(fc.m1.v>=60) return {k:"close",label:"Getting close",tone:"warn"};
+  return {k:"build",label:"Building your base",tone:"bad"};
+}
+function scoreChart(rows,fc){
+  const cw=(document.querySelector(".wrap")?.clientWidth||600)-72;
+  const W=Math.max(300,Math.min(760,cw)),H=Math.round(Math.max(230,Math.min(300,W*.5))),L=34,Rm=64,T=18,B=30;
+  const start=rows[0].d, end=addDays(today(),30);
+  const span=Math.max(1,daysBetween(start,end));
+  const ally=rows.map(r=>+r.pct).concat([67,fc.m1.lo,fc.m1.hi]);
+  const y0=Math.max(0,Math.floor((Math.min(...ally)-5)/10)*10), y1=Math.min(100,Math.ceil((Math.max(...ally)+5)/10)*10);
+  const X=d=>L+(W-L-Rm)*daysBetween(start,d)/span, Y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0));
+  let g='';
+  for(let v=y0;v<=y1;v+=10) g+=`<line x1="${L}" x2="${W-Rm}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">${v}</text>`;
+  // x ticks: first score, today, +30
+  const ticks=[[start,nice(start)],[today(),"Today"],[end,"+1 month"]].filter((t,i,a)=>i===0||Math.abs(X(t[0])-X(a[i-1][0]))>60);
+  ticks.forEach(([d,lab])=>g+=`<text x="${X(d)}" y="${H-10}" text-anchor="middle" font-size="11" fill="var(--muted)">${lab}</text>`);
+  // goal line
+  g+=`<line x1="${L}" x2="${W-Rm}" y1="${Y(67)}" y2="${Y(67)}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="6 5"/><text x="${W-Rm+6}" y="${Y(67)+4}" font-size="12" font-weight="700" fill="var(--ink)">67% goal</text>`;
+  // projection band + line from last score
+  const lx=X(rows[rows.length-1].d), ly=Y(+rows[rows.length-1].pct);
+  g+=`<polygon points="${lx},${ly} ${X(fc.w1.d)},${Y(fc.w1.hi)} ${X(fc.m1.d)},${Y(fc.m1.hi)} ${X(fc.m1.d)},${Y(fc.m1.lo)} ${X(fc.w1.d)},${Y(fc.w1.lo)}" fill="var(--accent)" fill-opacity=".12"/>`;
+  g+=`<polyline points="${lx},${ly} ${X(fc.w1.d)},${Y(fc.w1.v)} ${X(fc.m1.d)},${Y(fc.m1.v)}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 5"/>`;
+  [["In 1 week",fc.w1],["In 1 month",fc.m1]].forEach(([lab,f])=>g+=`<circle cx="${X(f.d)}" cy="${Y(f.v)}" r="5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2" class="pt" data-tip="${lab}: about ${f.v}% (likely ${f.lo}–${f.hi}%)"/>`);
+  // actual line
+  g+=`<polyline points="${rows.map(r=>X(r.d)+","+Y(+r.pct)).join(" ")}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  const ys=rows.map(r=>+r.pct), hiI=ys.indexOf(Math.max(...ys)), loI=ys.indexOf(Math.min(...ys));
+  rows.forEach((r,i)=>{const d=+r.pct-67;
+    g+=`<circle cx="${X(r.d)}" cy="${Y(+r.pct)}" r="6" fill="var(--accent)" stroke="var(--surface)" stroke-width="2" class="pt" data-tip="${esc(r.form)} · ${nice(r.d)}: ${r.pct}% (${d>=0?d+" above":(-d)+" below"} 67)"/>`;
+    if(i===rows.length-1||i===hiI||i===loI) g+=`<text x="${X(r.d)}" y="${Y(+r.pct)-12}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="var(--mono)">${r.pct}</text>`;
+  });
+  return `<div style="position:relative"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Self-assessment scores over time with the 67% goal line and a one-month projection" style="display:block;overflow:visible">${g}</svg><div id="tip" class="tip" hidden></div></div>`;
+}
+function vScores(){
+  const rows=S.scores.slice().sort((a,b)=>a.d.localeCompare(b.d));
+  const best=rows.reduce((m,r)=>Math.max(m,+r.pct),0), last=rows[rows.length-1];
+  const fc=forecast(rows), rd=readiness(rows,fc);
+  const recent=S.blocks.filter(b=>b.mode==="Timed"&&daysBetween(b.d,today())<=30), uw=pct(recent);
+  const toneVar={good:"good",warn:"warn",bad:"bad",muted:"muted"}[rd.tone];
+  document.getElementById("v-scores").innerHTML=`
+   <div class="card">
+    <div class="row" style="justify-content:space-between;align-items:flex-end">
+     <div><span class="label">Latest</span><div class="big num">${last?last.pct+"%":"–"}</div></div>
+     <div><span class="label">Best</span><div class="big num">${rows.length?best+"%":"–"}</div></div>
+     <div><span class="label">Gap to 67</span><div class="big num" style="color:var(--${last&&last.pct>=67?"good":"accent"})">${last?(last.pct>=67?"Passed":(67-last.pct)+" pts"):"–"}</div></div>
+    </div>
+    ${rows.length?scoreChart(rows,fc)+`<p class="small muted">Solid line: your scores. Dashed line and shaded area: where your trend points over the next month. Tap a dot for details.</p>`
+      :`<div class="empty">Add your first self-assessment below and your score line appears here, with the 67% goal line across it.</div>`}
+   </div>
+   <div class="card">
+    <h2>How ready am I?</h2>
+    <div class="row"><span class="chip" style="font-size:14px;padding:4px 12px;background:var(--${toneVar==="muted"?"sunk":toneVar+"-bg"});color:var(--${toneVar})">${rd.label}</span></div>
+    ${fc?`<div class="grid2">
+      <div class="item"><span class="label">If you took the CBSE in 1 week</span><div class="big num" style="font-size:36px">~${fc.w1.v}%</div><span class="small muted">Likely range ${fc.w1.lo}–${fc.w1.hi}%</span></div>
+      <div class="item"><span class="label">If you took it in 1 month</span><div class="big num" style="font-size:36px">~${fc.m1.v}%</div><span class="small muted">Likely range ${fc.m1.lo}–${fc.m1.hi}%</span></div>
+    </div>
+    <p class="small muted">${rows.length<3?"This estimate firms up after 3 self-assessments. ":""}It's based only on your own NBME scores, with recent ones counting most, so it's a rough guide, not an official prediction. Your school's rule still applies: book the CBSE after an actual 67%. Step 1 is pass/fail, and scoring consistently at or above 67% on NBME forms is a good sign you're ready for it too.</p>`
+    :`<p class="small muted">Take a baseline NBME and log it below. After 2–3 scores you'll see an estimate for 1 week and 1 month out.</p>`}
+    <p class="small"><b>UWorld timed, last 30 days:</b> ${uw?`<span class="num">${uw.p}%</span> on ${uw.n} questions`:"no timed blocks logged yet"}</p>
+   </div>
+   <div class="card"><h3>Add a self-assessment</h3>
+    <form class="inline" id="fscore">
+     <label class="f">Date<input type="date" id="s-d" value="${today()}" required></label>
+     <label class="f">Exam<input id="s-f" required maxlength="40" placeholder="e.g. NBME CBSSA Form 30"></label>
+     <label class="f">Score %<input type="number" id="s-p" min="0" max="100" required></label>
+     <button class="btn primary" type="submit">Save score</button>
+    </form>
+    ${rows.length?`<div class="tablebox"><table><thead><tr><th>Date</th><th>Exam</th><th>Score</th><th>vs 67</th><th></th></tr></thead><tbody>${rows.slice().reverse().map(r=>{const d=+r.pct-67;return `<tr><td class="num">${nice(r.d)}</td><td>${esc(r.form)}</td><td class="num">${r.pct}%</td><td class="num" style="color:var(--${d>=0?"good":"bad"})">${d>=0?"+":""}${d}</td><td><button class="btn sm" data-del="scores:${r.id}">Delete</button></td></tr>`}).join("")}</tbody></table></div>`:""}
+   </div>`;
+}
+
+function vPlan(){
+  const started=Object.keys(S.progress).length, locked=Object.values(S.progress).filter(p=>p.retired).length;
+  const all=pct(S.blocks);
+  const weakSys=SYSTEMS.map(s=>[s.name,pct(S.blocks.filter(b=>b.sys===s.id))]).filter(x=>x[1]&&x[1].n>=10).sort((a,b)=>a[1].p-b[1].p)[0];
+  const weakDis=DISCIPLINES.map(d=>[d,pct(S.blocks.filter(b=>b.dis===d))]).filter(x=>x[1]&&x[1].n>=10&&x[0]!=="Mixed").sort((a,b)=>a[1].p-b[1].p)[0];
+  document.getElementById("v-plan").innerHTML=`
+   <div class="card">
+    <span class="label">For my Nov 6 remediation meeting</span>
+    <h2>One review course, one question bank, one goal</h2>
+    <p>My goal is to pass an NBME self-assessment at <mark>67%</mark>, which lets me book the CBSE again. Bootcamp is my review course and sets the order of everything. UWorld is my only question bank, so I practice in the NBME/USMLE question style. First Aid is where I annotate and check facts. Sketchy is my visual memory for pharm and micro. NARQB is a short daily warm-up of 10–15 questions for broad active recall. I'm not using Anki. Instead, every topic goes through a fixed review schedule that this tracker runs for me.</p>
+    <div class="grid2">
+     <div><span class="label">Progress so far</span><p class="num">${started}/${ALL_TOPICS.length} topics started · ${locked} locked in · ${S.blocks.reduce((a,b)=>a+(+b.n||0),0)} UWorld Qs${all?` at ${all.p}%`:""}</p></div>
+     <div><span class="label">Weakest right now</span><p>${weakSys?`${weakSys[0]} (${weakSys[1].p}%)`:"Needs 10+ logged Qs"}${weakDis?` · ${weakDis[0]} (${weakDis[1].p}%)`:""}</p></div>
+    </div>
+   </div>
+   <div class="card"><h2>Order of systems</h2>
+    <p class="small muted">Weakest and highest-yield first, from my last CBSE. No fixed dates: I'm on my pediatrics rotation, so I go at my own pace and move to the next system when this one's topics are started and most reviews feel solid.</p>
+    <div class="phase"><span class="n">1</span><div><h3>Renal + Respiratory</h3><p class="small muted">Start here. Take a baseline self-assessment early, ideally before Nov 6.</p></div></div>
+    <div class="phase"><span class="n">2</span><div><h3>Endocrine + Reproductive</h3><p class="small muted">Self-assessment when this phase wraps up.</p></div></div>
+    <div class="phase"><span class="n">3</span><div><h3>Neuro + Psych</h3><p class="small muted">Self-assessment when this phase wraps up.</p></div></div>
+    <div class="phase"><span class="n">4</span><div><h3>Cardio</h3><p class="small muted">Self-assessment when this phase wraps up.</p></div></div>
+    <div class="phase"><span class="n">5</span><div><h3>Mixed review until 67%</h3><p class="small muted">Random timed 40-Q blocks, the weakest systems from the tracker, and regular self-assessments until I hit 67%.</p></div></div>
+    <p class="small"><b>Running through every phase:</b> pathology and physiology are filtered into every UWorld block. Nutrition gets about one small topic a week.</p>
+   </div>
+   <div class="card"><h2>Review schedule for every topic</h2>
+    <p class="small muted">After each Bootcamp video, the topic comes back on these days. If it felt shaky it comes back sooner. If I was lost it comes back tomorrow.</p>
+    <div class="ladder">${STEPS.map(s=>`<div class="rung"><span class="d">${s.day}</span><strong>${s.what}</strong><span class="small muted">${s.how}</span></div>`).join("")}</div>
+   </div>
+   <div class="card"><h2>Days that fit my rotation</h2>
+    <p class="small muted">My clinic hours change week to week, so I don't plan by hours. Each morning I pick the kind of day it is on the Today tab.</p>
+    ${Object.values(DAYTYPES).map(d=>`<div class="phase" style="grid-template-columns:1fr"><div><h3>${d.label}</h3><ul class="tight small">${d.items.map(i=>`<li>${i}</li>`).join("")}</ul></div></div>`).join("")}
+    <p class="small muted">A sprint is 25–45 minutes on one task, then a short movement break.</p>
+   </div>
+   <div class="card"><h2>Picking UWorld questions</h2>
+    <ul class="tight small">
+     <li><b>Same day as the video:</b> Create Test → Tutor mode → Unused → System: that system → Subjects: Pathology + Physiology (+ Pharm if the video covered drugs). 10–20 Qs.</li>
+     <li><b>Day 3:</b> Timed mode → Unused + Incorrect → same system. 10 Qs.</li>
+     <li><b>Day 14:</b> Timed → this system + one earlier system → 20 Qs.</li>
+     <li><b>Daily mixed block:</b> Timed → Unused → every system finished so far → 20–40 Qs. This builds the test-day feel.</li>
+     <li><b>Nutrition:</b> Subject Biochemistry, then pick the nutrition/vitamin topics if your UWorld version shows them.</li>
+     <li>Read every explanation, including the ones I got right by guessing. Mark a guess as a miss.</li>
+    </ul></div>
+   <div class="card"><h2>Keeping my ADHD brain engaged</h2>
+    <ul class="tight small">
+     <li><b>Short sprints with a timer.</b> One task each. Moving around on breaks is part of the plan.</li>
+     <li><b>Active recall, not rereading.</b> Blurting, teaching it out loud, and drawing the diagram (nephron, V/Q, HPA axis) all beat highlighting.</li>
+     <li><b>Pictures for facts that won't stick.</b> Sketchy for drugs and bugs, and color-coded First Aid tables.</li>
+     <li><b>Visible wins.</b> XP, a daily streak, and topics that go green and lock in.</li>
+     <li><b>No decision fatigue.</b> The Today tab says what's next, and "Pick one for me" chooses among due reviews.</li>
+     <li><b>Switch it up.</b> Change rooms or study with a friend on video for the long timed blocks.</li>
+     <li><b>Confidence from evidence.</b> The scores page shows the gap to 67 shrinking, and the miss log shows whether misses come from content or test-taking.</li>
+    </ul></div>
+   <div class="card"><h2>Keep my progress safe</h2>
+    <p class="small muted">Everything you log is saved right here on this phone. Every week or two, tap <b>Save a backup</b> and choose "Save to Files" (or email it to yourself). If you ever get a new phone or delete the app, tap <b>Restore a backup</b> and pick that file.</p>
+    <div class="row"><button class="btn primary" id="bk-save">Save a backup</button><button class="btn" id="bk-load">Restore a backup</button></div>
+    <p class="small muted">${lastBackup()?"Last backup: "+nice(lastBackup()):"No backup yet."}</p>
+   </div>`;
+}
+
+function render(){
+  statsBar();
+  const v=document.querySelector('nav.tabs [aria-selected="true"]').dataset.v;
+  ({today:vToday,topics:vTopics,uworld:vUworld,misses:vMisses,scores:vScores,plan:vPlan})[v]();
+}
+
+/* ---------- Events ---------- */
+function show(v){
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===v));
+  document.querySelectorAll("section.view").forEach(s=>s.hidden=s.id!=="v-"+v);
+  try{localStorage.setItem("bri-tab",v)}catch(e){}
+  render(); window.scrollTo({top:0});
+}
+document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-v]");if(b)show(b.dataset.v)});
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button"); if(!t) return;
+  if(t.dataset.start) startTopic(t.dataset.start);
+  else if(t.dataset.watched) finishWatching(t.dataset.watched);
+  else if(t.dataset.narqb){const t0=today(); if(S.narqb.find(x=>x.id===t0)) remove("narqb",t0); else {save("narqb",t0,{done:true}); toast("NARQB done ♡ +3 XP");}}
+  else if(t.dataset.rev){ratingFor=null; review(t.dataset.rev,t.dataset.c);}
+  else if(t.dataset.fix){const m=S.misses.find(x=>x.id===t.dataset.fix);if(m){const {id,...rest}=m;save("misses",id,{...rest,fixed:!m.fixed});if(!m.fixed)toast("+5 XP")}}
+  else if(t.dataset.reset){ if(t.dataset.armed){remove("progress",t.dataset.reset)} else {t.dataset.armed="1";t.textContent="Tap again to reset";setTimeout(()=>{if(t.isConnected){delete t.dataset.armed;t.textContent="Reset"}},3000)} }
+  else if(t.dataset.del){ if(t.dataset.armed){const [c,id]=t.dataset.del.split(":");remove(c,id)} else {t.dataset.armed="1";t.textContent="Tap to confirm";setTimeout(()=>{if(t.isConnected){delete t.dataset.armed;render()}},3000)} }
+  else if(t.id==="pick"){const d=dueList();const p=d[Math.floor(Math.random()*d.length)];const el=document.querySelector(`[data-tid="${p.id}"]`);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.style.outline="3px solid var(--hi)";el.style.borderRadius="12px";toast("Do this one: "+p.name)}}
+  else if(t.dataset.day) setDayType(t.dataset.day);
+  else if(t.dataset.todo) toggleTodo(t.dataset.todo);
+  else if(t.dataset.chk!==undefined){ratingFor=t.dataset.chk||null; render();}
+  else if(t.dataset.goto) show(t.dataset.goto);
+  else if(t.id==="cleardone"){ if(t.dataset.armed){S.todos.filter(x=>x.done).forEach(x=>remove("todos",x.id))} else {t.dataset.armed="1";t.textContent="Tap again to clear";setTimeout(()=>{if(t.isConnected){delete t.dataset.armed;t.textContent="Clear finished tasks"}},3000)} }
+  else if(t.id==="copyq"){const txt=document.getElementById("qids").textContent;
+    (navigator.clipboard?.writeText(txt)||Promise.reject()).then(()=>toast("Copied ♡ paste them into UWorld")).catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("qids"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);toast("Selected. Press copy on your keyboard")});}
+  else if(t.id==="tgo"){ if(timer.run){clearInterval(timer.h);timer.run=false}else{timer.run=true;timer.h=setInterval(tick,1000)} t.textContent=timer.run?"Pause":"Start"; }
+  else if(t.dataset.len){clearInterval(timer.h);timer.run=false;timer.len=timer.left=+t.dataset.len*60;render()}
+});
+function showTip(el){const tip=document.getElementById("tip");if(!tip)return;const box=tip.parentElement.getBoundingClientRect(),r=el.getBoundingClientRect();tip.textContent=el.dataset.tip;tip.hidden=false;tip.style.left=Math.min(Math.max(r.left+r.width/2-box.left,90),box.width-90)+"px";tip.style.top=(r.top-box.top)+"px"}
+document.addEventListener("pointerover",e=>{const el=e.target.closest?.(".pt");if(el)showTip(el)});
+document.addEventListener("pointerout",e=>{if(e.target.closest?.(".pt")){const t=document.getElementById("tip");if(t)t.hidden=true}});
+document.addEventListener("pointerdown",e=>{const el=e.target.closest?.(".pt");if(el)showTip(el)});
+document.addEventListener("change",e=>{if(e.target.id==="m-sys")document.getElementById("m-topic").innerHTML=topicOptions(e.target.value)});
+document.addEventListener("submit",e=>{
+  e.preventDefault(); const f=e.target; const v=id=>document.getElementById(id).value;
+  if(f.id==="fblock"){const n=+v("b-n"),c=+v("b-c"); if(c>n){toast("Correct can't be more than the number of questions");return}
+    save("blocks",newId(),{d:v("b-d"),sys:v("b-sys"),dis:v("b-dis"),mode:v("b-mode"),n,correct:c}); toast("Block saved · now log your misses");}
+  if(f.id==="fmiss"){save("misses",newId(),{d:today(),concept:v("m-c").trim(),qid:v("m-q").replace(/\D/g,""),topic:v("m-topic"),sys:v("m-sys"),dis:v("m-dis"),why:v("m-why"),fixed:false}); toast("+3 XP · it'll come back as a flashback");}
+  if(f.id==="ftodo"){save("todos",newId(),{text:v("td-text").trim(),cat:v("td-cat"),done:false,doneAt:"",created:new Date().toISOString()}); toast("Added to your list ♡");}
+  if(f.id==="fnarqb"){const c=v("nq-c"),n=v("nq-n"); if(n){ if(+c>+n){toast("Correct can't be more than the total");return} save("narqb",today(),{done:true,n:+n,correct:c===""?null:+c}); toast("Saved ♡");}}
+  if(f.id==="fverse"){save("verses",newId(),{ref:v("vr-ref").trim(),text:v("vr-text").trim()}); toast("Added ♡ it'll show up in the rotation");}
+  if(f.id==="fscore"){const p=+v("s-p"); save("scores",newId(),{d:v("s-d"),form:v("s-f").trim(),pct:p}); toast(p>=67?"67 reached. Time to book the CBSE!":"Saved. "+(67-p)+" points to go");}
+});
+
+/* ---------- Backups ---------- */
+function lastBackup(){try{return localStorage.getItem("bri67-last-backup")||""}catch(e){return ""}}
+async function saveBackup(){
+  const name="road-to-67-backup-"+today()+".json";
+  const blob=new Blob([JSON.stringify({app:"road-to-67",saved:new Date().toISOString(),data:S},null,1)],{type:"application/json"});
+  const file=new File([blob],name,{type:"application/json"});
+  try{
+    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:"Road to 67 backup"})}
+    else{const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();}
+    try{localStorage.setItem("bri67-last-backup",today())}catch(e){}
+    toast("Backup made ♡"); render();
+  }catch(e){ if(e&&e.name!=="AbortError") toast("Couldn't make the backup, try again"); }
+}
+function restoreBackup(f){
+  const r=new FileReader();
+  r.onload=()=>{try{const j=JSON.parse(r.result);const d=j.data||j;
+    if(typeof d!=="object"||!("progress" in d)) throw 0;
+    Object.keys(S).forEach(k=>{S[k]=d[k]!=null?d[k]:(k==="progress"?{}:[])});
+    persist(); render(); toast("Restored ♡ welcome back");
+  }catch(e){toast("That file isn't a Road to 67 backup")}};
+  r.readAsText(f);
+}
+document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;
+  if(t.id==="bk-save") saveBackup();
+  else if(t.id==="bk-load"){ if(t.dataset.armed){document.getElementById("bk-file").click()} else {t.dataset.armed="1";t.textContent="This replaces what's on the app. Tap again";setTimeout(()=>{if(t.isConnected){delete t.dataset.armed;t.textContent="Restore a backup"}},4000)} }
+});
+document.addEventListener("change",e=>{if(e.target.id==="bk-file"&&e.target.files[0]) restoreBackup(e.target.files[0])});
+
+/* ---------- Boot ---------- */
+loadSaved();
+if(!persist()) document.getElementById("dbnote").hidden=false;
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+/* Re-draw when she reopens the app on a new day, so "Today" is today. */
+let lastDay=today();
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&today()!==lastDay){lastDay=today();render()}});
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+try{const t=localStorage.getItem("bri-tab"); if(t&&document.getElementById("v-"+t)) show(t); else render();}catch(e){render()}
+(async()=>{return;
+  db = window.claude?.use ? await window.claude.use("db").catch(()=>null) : null;
+  if(!db){document.getElementById("dbnote").hidden=false;return}
+  for(const col of ["progress","blocks","misses","scores","verses","days","todos","narqb"]){
+    db.collection(col).onSnapshot(snap=>{
+      if(col==="progress"){const o={};snap.docs.forEach(d=>o[d.id]=d.data());S.progress=o}
+      else S[col]=snap.docs.map(d=>({...d.data(),id:d.id}));
+      if(!document.activeElement || !["INPUT","SELECT","TEXTAREA"].includes(document.activeElement.tagName)) render();
+      else statsBar();
+    },err=>toast("Sync problem: "+(err?.message||err?.code)));
+  }
+})();
+</script>
+
+</body>
+</html>
