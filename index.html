@@ -336,7 +336,7 @@ ul.tight{margin:0;padding-left:20px;display:grid;gap:6px}
     <div style="display:grid;gap:4px;min-width:0">
       <div class="flowers"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><g fill="var(--accent)"><circle cx="20" cy="9" r="8"/><circle cx="30.5" cy="16.6" r="8"/><circle cx="26.5" cy="29" r="8"/><circle cx="13.5" cy="29" r="8"/><circle cx="9.5" cy="16.6" r="8"/></g><circle cx="20" cy="20" r="6" fill="#FFD66B"/></svg><svg width="18" height="18" viewBox="0 0 40 40" aria-hidden="true"><g fill="var(--lav)"><circle cx="20" cy="9" r="8"/><circle cx="30.5" cy="16.6" r="8"/><circle cx="26.5" cy="29" r="8"/><circle cx="13.5" cy="29" r="8"/><circle cx="9.5" cy="16.6" r="8"/></g><circle cx="20" cy="20" r="6" fill="#FFD66B"/></svg><svg width="22" height="22" viewBox="0 0 40 40" aria-hidden="true"><g fill="var(--hi)"><circle cx="20" cy="9" r="8"/><circle cx="30.5" cy="16.6" r="8"/><circle cx="26.5" cy="29" r="8"/><circle cx="13.5" cy="29" r="8"/><circle cx="9.5" cy="16.6" r="8"/></g><circle cx="20" cy="20" r="6" fill="var(--accent)"/></svg><span class="script">you've got this, Bri</span></div>
       <h1>Bri's Road to <mark>67</mark> <span style="color:var(--accent)">&#9825;</span></h1>
-      <span class="label">CBSE remediation · Bootcamp + UWorld + Sketchy</span>
+      <span class="label">CBSE remediation · Bootcamp + UWorld + AMBOSS + Sketchy</span>
     </div></div>
     <div class="stats" id="stats"></div>
   </header>
@@ -368,6 +368,10 @@ const SYSTEMS = [
    topics:["Renal anatomy & embryology","Filtration, GFR & clearance","Tubular physiology (Na, K, water handling)","Acid–base disorders","Electrolytes: Na, K, Ca, Mg, phosphate","Diuretics & renal pharm","Nephritic syndromes","Nephrotic syndromes","AKI & CKD","Kidney stones & obstruction","Cystic kidney disease & renal tumors","UTI & pyelonephritis"]},
   {id:"resp", name:"Respiratory", phase:1, sketchy:"Sketchy Micro: pneumonia bugs, TB, fungi (Histo, Blasto, Cocci). Sketchy Pharm: asthma/COPD drugs, TB drugs.",
    topics:["Lung anatomy & embryology","Lung volumes & mechanics","Gas exchange, V/Q & hypoxemia","O2–Hb curve & CO2 transport","Obstructive disease (asthma, COPD, bronchiectasis)","Restrictive & interstitial disease, pneumoconioses","PE & pulmonary hypertension","Lung cancer","Pneumonia & TB","Pleural disease & pneumothorax","ARDS, sleep apnea & high altitude","Respiratory pharm"]},
+  {id:"cardio", name:"Cardio", phase:1, sketchy:"Sketchy Pharm: antiarrhythmics, HF drugs, lipid drugs, antihypertensives. Sketchy Micro: endocarditis bugs, rheumatic fever (Strep pyogenes).",
+   topics:["Cardiac embryology & congenital heart disease","Cardiac cycle, PV loops & Wiggers","Hemodynamics & murmurs","Atherosclerosis & ischemic heart disease","Heart failure & cardiomyopathies","Arrhythmias & ECG","Valve disease & endocarditis","Hypertension & vasculitis","Cardiac pharm"]},
+  {id:"immuno", name:"Immunology", phase:1, sketchy:"Sketchy Pharm: immunosuppressants (cyclosporine, tacrolimus, sirolimus, mycophenolate) and the -mab biologics.",
+   topics:["Innate immunity & complement","MHC, antigen presentation & T cells","B cells & immunoglobulins","Cytokines & cell surface markers","Hypersensitivity reactions (types I–IV)","Immunodeficiencies","Autoantibodies & autoimmune disease","Transplant rejection","Vaccines, immunosuppressants & biologics"]},
   {id:"endo", name:"Endocrine", phase:2, sketchy:"Sketchy Pharm: diabetes drugs, thyroid drugs, steroids. Sketchy Path: endocrine tumors if you have it.",
    topics:["Hypothalamus & pituitary","Thyroid physiology","Hyper/hypothyroidism & thyroid cancer","Adrenal cortex: Cushing, Addison, CAH, hyperaldo","Adrenal medulla & pheochromocytoma","Calcium, PTH & vitamin D","Diabetes mellitus & diabetes drugs","MEN syndromes & neuroendocrine tumors","Endocrine pharm"]},
   {id:"repro", name:"Reproductive", phase:2, sketchy:"Sketchy Pharm: contraceptives, SERMs, androgens/antiandrogens. Sketchy Micro: STIs (Chlamydia, Gonorrhea, Syphilis, HPV, HSV).",
@@ -376,8 +380,8 @@ const SYSTEMS = [
    topics:["Neuroanatomy & lesion localization","Cranial nerves & brainstem","Stroke & vascular syndromes","Seizures & antiepileptics","Neurodegeneration & dementia","Demyelinating & neuromuscular disease","CNS infections","Brain tumors","Headache, CSF & hydrocephalus","Eye & ear","Anesthetics & opioids"]},
   {id:"psych", name:"Psych", phase:3, sketchy:"Sketchy Pharm: antidepressants, antipsychotics, lithium, benzos, ADHD meds.",
    topics:["Mood disorders & antidepressants","Psychotic disorders & antipsychotics","Anxiety, OCD & trauma disorders","Personality disorders","Substance use & withdrawal","Child psych & development","Sleep & eating disorders","Defense mechanisms & ethics"]},
-  {id:"cardio", name:"Cardio", phase:4, sketchy:"Sketchy Pharm: antiarrhythmics, HF drugs, lipid drugs, antihypertensives. Sketchy Micro: endocarditis bugs, rheumatic fever (Strep pyogenes).",
-   topics:["Cardiac embryology & congenital heart disease","Cardiac cycle, PV loops & Wiggers","Hemodynamics & murmurs","Atherosclerosis & ischemic heart disease","Heart failure & cardiomyopathies","Arrhythmias & ECG","Valve disease & endocarditis","Hypertension & vasculitis","Cardiac pharm"]},
+  {id:"biochem", name:"Biochem", phase:2, sketchy:"Sketchy Biochem if you have it. Save the Dirty Medicine biochem playlist for your final week before the CBSE.",
+   topics:["DNA, RNA & protein synthesis","Cell biology & collagen","Lab techniques & genetics basics","Glycolysis, TCA & electron transport","Gluconeogenesis, HMP shunt & glycogen storage diseases","Lipid metabolism & lysosomal storage diseases","Amino acids, urea cycle & hyperammonemia","Purine & pyrimidine metabolism","Inheritance patterns & genetic syndromes"]},
   {id:"nutr", name:"Nutrition", phase:0, sketchy:"Sketchy Biochem (if you have it): vitamin sketches. Otherwise First Aid's vitamin table, color-coded.",
    topics:["Fat-soluble vitamins (A, D, E, K)","B1, B2, B3, B5, B6","B7, B9, B12 & vitamin C","Minerals: zinc, iron, copper","Malnutrition & fed/fasting metabolism"]},
 ];
@@ -395,11 +399,36 @@ const VERSES=[
 function versePool(){return VERSES.concat(S.verses.slice().sort((a,b)=>a.id.localeCompare(b.id)).map(v=>[v.ref,v.text]))}
 function verseFor(dateIso){const pool=versePool();const [y,m,d]=dateIso.split("-").map(Number);const n=Math.floor(Date.UTC(y,m-1,d)/864e5);return pool[((n%pool.length)+pool.length)%pool.length]}
 
+/* Study blocks from her Nov 6 counselor meeting: mix systems that work together instead of one at a time. */
+const BLOCKS=[
+  {name:"Cardio · Pulm · Renal · Immuno", until:"2026-11-30", sys:["cardio","resp","renal","immuno"], uw:"Cardiovascular, Pulmonary & Critical Care, Renal/Urinary, Allergy & Immunology"},
+  {name:"Repro · Endo · Biochem", until:"", sys:["repro","endo","biochem"], uw:"Reproductive, Endocrine, plus Subject: Biochemistry"},
+  {name:"Psych · Neuro brush-up", until:"", sys:["psych","neuro"], uw:"Psychiatry/Behavioral, Nervous System, Social Sciences"},
+];
+function currentBlock(){return BLOCKS.find(b=>b.sys.some(s=>ALL_TOPICS.some(t=>t.sys===s&&!S.progress[t.id])))||BLOCKS[0]}
+function lastStart(sys){return ALL_TOPICS.filter(t=>t.sys===sys&&S.progress[t.id]).map(t=>S.progress[t.id].start||"").sort().pop()||""}
+/* How many new Bootcamp sections today: more on big days, fewer on clinic days. */
+function mixSize(){const dt=dayType();if(dt==="off"||dt==="catchup")return 0;if(dt==="full")return 4;if(dt==="half")return 2;if(dt==="clinic")return 1;return isClinicWeekday()?1:3}
+function isClinicWeekday(){const g=new Date().getDay();return g>=2&&g<=5}
+/* Today's mix: the next section from each block system, starting with the one she touched least recently. */
+function todayMix(){
+  const b=currentBlock(), n=mixSize();
+  const watchingIn=new Set(ALL_TOPICS.filter(t=>S.progress[t.id]?.watching&&b.sys.includes(t.sys)).map(t=>t.sys));
+  return b.sys.filter(s=>!watchingIn.has(s)).map(s=>({next:ALL_TOPICS.find(t=>t.sys===s&&!S.progress[t.id]),last:lastStart(s)}))
+    .filter(x=>x.next).sort((a,c)=>a.last.localeCompare(c.last)).slice(0,Math.max(0,n-watchingIn.size)).map(x=>x.next);
+}
+/* Daily question goal: 40, or 25 on clinic days. AMBOSS counts toward it. */
+function qGoal(){const dt=dayType();if(dt==="off")return 0;return dt==="clinic"||(!dt&&isClinicWeekday())?25:40}
+function qToday(){const t0=today();const uw=S.blocks.filter(b=>b.d===t0).reduce((a,b)=>a+(+b.n||0),0);const am=S.amboss.find(x=>x.id===t0);return {uw,am:am?(+am.n||10):0}}
+const HYGURU_MIN=14*60, HYGURU_END="2026-11-30";
+function hyguruTotal(){return S.hyguru.reduce((a,x)=>a+(+x.min||0),0)}
+function weekStart(d){const [y,m,dd]=d.split("-").map(Number);const x=new Date(y,m-1,dd);const g=(x.getDay()+6)%7;return addDays(d,-g)}
+
 /* Day types: her rotation schedule changes week to week, so she picks how much room today has. */
 const DAYTYPES={
-  full:{label:"Full day",note:"Around 12 hours. Big progress day, with real breaks between sprints.",items:["Clear the reviews due","2–3 new Bootcamp topics, each with its 10–20 Tutor Qs","1 timed mixed block (40 Qs) from systems you've covered","Go over the block, log misses, rewatch Sketchy for missed drugs and bugs","Miss flashback + a nutrition snack"]},
-  half:{label:"Half day",note:"Around 6 hours. One or two new things, plus keeping up.",items:["Clear the reviews due","1–2 new Bootcamp topics + their Tutor Qs","20-Q timed block from systems you've covered","Log your misses","Miss flashback"]},
-  clinic:{label:"Clinic day",note:"Around 3–4 hours. Short and sweet.",items:["Clear the reviews due (start with the shortest)","Miss flashback: 3 quick ones","10–20 UWorld Qs, Tutor or Timed, any system you've covered"]},
+  full:{label:"Full day",note:"Around 12 hours. Big progress day, with real breaks between sprints. Goal: 40 questions.",items:["AMBOSS warm-up: 10 Qs, 1–2 hammers (Micro, Biochem, Immuno, Pharm)","Today's mix: one Bootcamp section from each block system (up to 4)","30 mixed UWorld Qs from this block's systems, then log your misses","Clear the reviews due","HyGuru Top Concepts: about 1 hour","Path image of the day + miss flashback"]},
+  half:{label:"Half day",note:"Around 6 hours. Goal: 40 questions.",items:["AMBOSS warm-up: 10 Qs","Today's mix: 2 Bootcamp sections from different systems","30 mixed UWorld Qs, then log your misses","Clear the reviews due","HyGuru: about 1 hour","Path image of the day"]},
+  clinic:{label:"Clinic day",note:"Around 3–4 hours. Short and sweet. Goal: 25 questions.",items:["AMBOSS warm-up: 10 Qs","15 mixed UWorld Qs from this block's systems","1 Bootcamp section if you have energy","Path image of the day","HyGuru if there's time, even 30 minutes counts"]},
   catchup:{label:"Catch-up day",note:"No new topics today. Just chip away at what's waiting, oldest first. Your to-do list shows only 5 at a time.",items:["Start with the shortest ones: blurts and teach-backs take about 5 minutes","Do the oldest reviews first","Stop when you hit your limit. Whatever's left just waits, nothing is lost","No new Bootcamp topics until you feel caught up"]},
   off:{label:"Day off",note:"Rest day, no studying. Your streak is safe. Reviews will wait for you.",items:["Read today's verse","Rest, move, see your people. Rest is part of the plan"]},
 };
@@ -430,7 +459,7 @@ const nice = s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)
 const daysBetween=(a,b)=>{const [y1,m1,d1]=a.split("-").map(Number),[y2,m2,d2]=b.split("-").map(Number);return Math.round((new Date(y2,m2-1,d2)-new Date(y1,m1-1,d1))/864e5)};
 
 /* ---------- State ---------- */
-const S = {progress:{}, blocks:[], misses:[], scores:[], verses:[], days:[], todos:[], narqb:[]};
+const S = {progress:{}, blocks:[], misses:[], scores:[], verses:[], days:[], todos:[], narqb:[], amboss:[], hyguru:[], weekly:[], pathimg:[]};
 const LS_KEY="bri67-data-v1";
 const SEED=null;
 function persist(){try{localStorage.setItem(LS_KEY,JSON.stringify(S));return true}catch(e){toast("Couldn't save on this phone");return false}}
@@ -456,7 +485,8 @@ function activityDays(){
   const days=new Set();
   Object.values(S.progress).forEach(p=>(p.history||[]).forEach(h=>days.add(h.d)));
   S.blocks.forEach(b=>days.add(b.d)); S.misses.forEach(m=>days.add(m.d));
-  S.narqb.forEach(n=>days.add(n.id));
+  S.narqb.forEach(n=>days.add(n.id)); S.amboss.forEach(n=>days.add(n.id)); S.hyguru.forEach(n=>days.add(n.id));
+  S.pathimg.forEach(p=>(p.history||[]).forEach(h=>days.add(h.d)));
   return days;
 }
 function streak(){
@@ -473,12 +503,14 @@ function xp(){
   S.blocks.forEach(b=>x+=5+Math.round((+b.correct||0)/2));
   S.misses.forEach(m=>x+=3+(m.fixed?5:0));
   S.todos.forEach(t=>x+=t.done?2:0);
-  x+=S.narqb.length*3;
+  x+=S.narqb.length*3+S.amboss.length*5+S.weekly.length*5;
+  S.hyguru.forEach(h=>x+=Math.round((+h.min||0)/10));
+  S.pathimg.forEach(p=>x+=(p.history||[]).filter(h=>h.ok).length*3);
   return Math.max(0,x);
 }
 function pct(rows){const n=rows.reduce((a,b)=>a+(+b.n||0),0),c=rows.reduce((a,b)=>a+(+b.correct||0),0);return n?{p:Math.round(100*c/n),n}:null}
 const tone=p=>p==null?"":p>=67?"g":p>=55?"y":"r";
-function nextTopic(){return ALL_TOPICS.find(t=>!S.progress[t.id] && t.sys!=="nutr")}
+function nextTopic(){return todayMix()[0]||ALL_TOPICS.find(t=>!S.progress[t.id] && currentBlock().sys.includes(t.sys))||ALL_TOPICS.find(t=>!S.progress[t.id] && t.sys!=="nutr")}
 function nextNutrition(){return ALL_TOPICS.find(t=>(!S.progress[t.id]||S.progress[t.id].watching) && t.sys==="nutr")}
 function dueList(){
   const t=today();
@@ -564,29 +596,56 @@ function todoCard(){
      <div class="tx" style="display:grid;gap:4px"><div><b>Watch Bootcamp:</b> ${esc(t.name)}</div>
       <div class="row" style="gap:6px"><span class="chip c-topic">Topic</span><span class="chip sys">${SYS[t.sys].name}</span><span class="small muted">Started ${nice(S.progress[t.id].start)}</span></div>
       <span class="small muted">Watch at 1.25–1.5× with First Aid open. Pause halfway and say the main idea out loud. Check it off when you finish the videos, and your first questions for it show up.</span></div></div>`;
-  const nextRow=nt&&!watching.length?`<div class="todo"><span class="heartbox" aria-hidden="true" style="border-style:dashed"></span>
-     <div class="tx" style="display:grid;gap:4px"><div><b>Up next:</b> ${esc(nt.name)}</div>
-      <div class="row" style="gap:6px"><span class="chip c-topic">Topic</span><span class="chip sys">${SYS[nt.sys].name}</span><button class="btn sm primary" data-start="${nt.id}">Start videos</button></div></div></div>`:"";
+  const mix=todayMix();
+  const nextRow=mix.map(nt=>`<div class="todo"><span class="heartbox" aria-hidden="true" style="border-style:dashed"></span>
+     <div class="tx" style="display:grid;gap:4px"><div><b>Today's mix · ${SYS[nt.sys].name}:</b> ${esc(nt.name)}</div>
+      <div class="row" style="gap:6px"><span class="chip c-topic">Topic</span><span class="chip sys">${SYS[nt.sys].name}</span><button class="btn sm primary" data-start="${nt.id}">Start videos</button></div></div></div>`).join("");
   const missRow=openQ?`<div class="todo"><span class="heartbox" aria-hidden="true" style="border-style:dashed"></span><div class="tx" style="display:grid;gap:4px"><div><b>Redo missed questions:</b> ${openQ} open</div>
       <div class="row" style="gap:6px"><span class="chip c-qs">Questions</span><button class="btn sm lav" data-goto="misses">Open Miss log</button></div></div></div>`:"";
   const catchup=dayType()==="catchup";
   const shown=catchup?now.slice(0,5):now, rest=catchup?now.slice(5):[];
-  /* Daily NARQB warm-up: 10–15 Qs on every study day (not Day off or Catch-up day). */
-  const dtNow=dayType(), nq=S.narqb.find(x=>x.id===t0), showNarqb=!["off","catchup"].includes(dtNow)||nq;
-  const wkDays=S.narqb.filter(x=>daysBetween(x.id,t0)>=0&&daysBetween(x.id,t0)<7).length;
-  const narqbRow=showNarqb?`<div class="todo ${nq?"done":""}"><button class="heartbox" role="checkbox" aria-checked="${!!nq}" aria-label="Daily NARQB questions done" data-narqb="1">${nq?"&#9829;":""}</button>
-     <div class="tx" style="display:grid;gap:4px"><div><b>Daily NARQB:</b> 10–15 questions</div>
+  /* Daily AMBOSS warm-up (replaced NARQB on Nov 6): 10 Qs, 1–2 hammers, every day except a day off. */
+  const dtNow=dayType(), nq=S.amboss.find(x=>x.id===t0), showNarqb=dtNow!=="off"||nq;
+  const wkDays=S.amboss.filter(x=>daysBetween(x.id,t0)>=0&&daysBetween(x.id,t0)<7).length;
+  const blk=currentBlock(), goal=qGoal(), qt=qToday(), qDone=qt.uw+qt.am;
+  const uwLeft=Math.max(0,goal-qDone-(nq?0:10));
+  const goalRow=goal?`<div class="item" style="gap:6px"><div class="row" style="justify-content:space-between"><b>Today's questions</b><span class="num"><b>${qDone}</b> / ${goal}</span></div>
+     <div class="bar"><i style="width:${Math.min(100,Math.round(100*qDone/goal))}%"></i></div>
+     <span class="small muted">${qDone>=goal?"Goal hit! Anything more is a bonus ♡":`${qt.am?"":"10 AMBOSS + "}${uwLeft} mixed UWorld to go. Log UWorld blocks in the UWorld log and they count here.`}</span></div>`:"";
+  const uwDone=goal&&qDone>=goal;
+  const uwRow=goal&&!catchup?`<div class="todo ${uwDone?"done":""}"><span class="heartbox" aria-hidden="true" style="${uwDone?"background:var(--accent)":"border-style:dashed"}">${uwDone?"&#9829;":""}</span>
+     <div class="tx" style="display:grid;gap:4px"><div><b>Mixed UWorld block:</b> ${uwDone?"done for today":uwLeft+" Qs"}</div>
+      <div class="row" style="gap:6px"><span class="chip c-qs">Questions</span><span class="chip sys">${esc(blk.name)}</span>${uwDone?"":`<button class="btn sm lav" data-goto="uworld">Log a block</button>`}</div>
+      ${uwDone?"":`<span class="small muted">UWorld → Create Test → Timed · Unused (+ Incorrect) · Systems: ${esc(blk.uw)} · all subjects. Mixed, not one system at a time.</span>`}</div></div>`:"";
+  /* HyGuru NBME Top Concepts (free, ~14 h): about an hour a day to finish by Nov 30. */
+  const hgTot=hyguruTotal(), hgToday=+(S.hyguru.find(x=>x.id===t0)?.min||0), hgDaysLeft=Math.max(1,daysBetween(t0,HYGURU_END)+1);
+  const hgPer=Math.max(0,Math.ceil((HYGURU_MIN-hgTot+hgToday)/hgDaysLeft/5)*5);
+  const hgRow=hgTot<HYGURU_MIN&&dtNow!=="off"||hgToday?`<div class="todo ${hgToday>=60?"done":""}"><button class="heartbox" role="checkbox" aria-checked="${hgToday>=60}" aria-label="HyGuru hour done" data-hg="60">${hgToday>=60?"&#9829;":""}</button>
+     <div class="tx" style="display:grid;gap:4px"><div><b>HyGuru NBME Top Concepts:</b> about 1 hour</div>
+      <div class="row" style="gap:6px"><span class="chip c-topic">Test strategy</span><span class="small muted num">${(hgTot/60).toFixed(1)} of 14 h done${hgToday?` · ${hgToday} min today`:""}</span></div>
+      <div class="bar"><i style="width:${Math.min(100,Math.round(100*hgTot/HYGURU_MIN))}%"></i></div>
+      <div class="row" style="gap:6px"><button class="btn sm" data-hg="30">+30 min</button><button class="btn sm" data-hg="60">+1 hour</button>${hgToday?`<button class="btn sm" data-hg="0">Undo today</button>`:""}</div>
+      <span class="small muted">${hgTot>=HYGURU_MIN?"Course finished! 🎉":`About ${hgPer} min a day finishes it by ${nice(HYGURU_END)}. Focus on how the NBME words questions and what the last line is really asking.`}</span></div></div>`:"";
+  /* Weekly psych + ethics keep-up, so her strongest section stays strong. */
+  const wk0=weekStart(t0), wkDone=S.weekly.find(x=>x.id===wk0);
+  const psyRow=dtNow!=="off"||wkDone?`<div class="todo ${wkDone?"done":""}"><button class="heartbox" role="checkbox" aria-checked="${!!wkDone}" aria-label="Weekly psych and ethics block done" data-weekly="${wk0}">${wkDone?"&#9829;":""}</button>
+     <div class="tx" style="display:grid;gap:4px"><div><b>Weekly psych + ethics keep-up:</b> 20 Qs</div>
+      <div class="row" style="gap:6px"><span class="chip c-qs">Questions</span><span class="chip">Once this week</span></div>
+      ${wkDone?"":`<span class="small muted">UWorld → Tutor · Systems: Psychiatry/Behavioral + Social Sciences (Ethics) · Subjects: Behavioral Sciences + Communication & Ethics. Do it any day this week.</span>`}</div></div>`:"";
+  const narqbRow=showNarqb?`<div class="todo ${nq?"done":""}"><button class="heartbox" role="checkbox" aria-checked="${!!nq}" aria-label="Daily AMBOSS questions done" data-amboss="1">${nq?"&#9829;":""}</button>
+     <div class="tx" style="display:grid;gap:4px"><div><b>AMBOSS warm-up:</b> 10 questions</div>
       <div class="row" style="gap:6px"><span class="chip c-recall">Active recall</span><span class="chip">Every day</span><span class="small muted">${wkDays}/7 days this week</span></div>
-      ${nq?(nq.n?`<span class="small muted" style="text-decoration:none">Logged: ${nq.correct??"?"} of ${nq.n} correct</span>`:`<form class="row" id="fnarqb" style="gap:6px"><input id="nq-c" type="number" min="0" max="200" placeholder="Correct" style="width:90px" aria-label="Correct"><input id="nq-n" type="number" min="1" max="200" placeholder="Out of" style="width:90px" aria-label="Out of"><button class="btn sm" type="submit">Save score</button></form>`)
-        :`<span class="small muted">A quick warm-up at <a href="https://narqb.com" target="_blank" rel="noopener" style="color:var(--accent)">narqb.com</a>, about 15–20 minutes. It picks your questions and brings misses back on its own, so you don't need to log NARQB misses here. Keep the Miss log for UWorld.</span>`}
+      ${nq?(nq.scored?`<span class="small muted" style="text-decoration:none">Logged: ${nq.correct??"?"} of ${nq.n} correct</span>`:`<form class="row" id="fnarqb" style="gap:6px"><input id="nq-c" type="number" min="0" max="200" placeholder="Correct" style="width:90px" aria-label="Correct"><input id="nq-n" type="number" min="1" max="200" placeholder="Out of" style="width:90px" aria-label="Out of"><button class="btn sm" type="submit">Save score</button></form>`)
+        :`<span class="small muted">AMBOSS → Custom session · Difficulty: 1–2 hammers · Subjects: Microbiology, Biochemistry, Immunology, Pharmacology · 10 Qs. Keeps your micro, biochem, immuno and pharm fresh every day. It counts toward today's question goal.</span>`}
      </div></div>`:"";
-  const nowCount=now.length+watching.length+(nt&&!watching.length&&!catchup?1:0)+own.length+(narqbRow&&!nq?1:0);
+  const nowCount=now.length+watching.length+(catchup?0:mix.length)+own.length+(narqbRow&&!nq?1:0)+(uwRow&&!uwDone?1:0)+(hgRow&&hgToday<60?1:0)+(psyRow&&!wkDone?1:0);
   return `<div class="card">
    <div class="row" style="justify-content:space-between"><h2>My to-do list</h2>${now.length>1?`<button class="btn sm hi" id="pick">Pick one for me</button>`:""}</div>
-   <p class="small muted">This fills itself in from the topics you've started. Start a topic's videos and it shows up here as "Watch." When you finish the videos, check it off and its questions appear. Check a review off and rate how it felt, and its next step appears with a new due date. Missed a few days? Everything just waits here.</p>
+   <p class="small muted">Now studying: <b>${esc(blk.name)}</b>, mixed together${blk.until?` until your ${nice(blk.until)} self-assessment`:""}. "Today's mix" gives you a Bootcamp section from different systems. Start one and it shows up as "Watch"; finish it and its questions appear. Missed a few days? Everything just waits here.</p>
+   ${goalRow}
    <div><span class="label">Do now · ${nowCount}</span>
     ${catchup?`<p class="small" style="margin-block:6px"><b>Catch-up day:</b> just these ${shown.length}. One at a time ♡</p>`:""}
-    ${narqbRow}${watching.map(watchRow).join("")}${shown.map(rev).join("")}${rest.length?`<details><summary class="small muted" style="cursor:pointer">${rest.length} more waiting, no rush</summary>${rest.map(rev).join("")}</details>`:""}${catchup?"":nextRow}${own.map(own_row).join("")}${missRow}
+    ${narqbRow}${uwRow}${watching.map(watchRow).join("")}${shown.map(rev).join("")}${rest.length?`<details><summary class="small muted" style="cursor:pointer">${rest.length} more waiting, no rush</summary>${rest.map(rev).join("")}</details>`:""}${catchup?"":nextRow}${hgRow}${psyRow}${own.map(own_row).join("")}${missRow}
     ${!now.length&&!watching.length&&(!nextRow||catchup)&&!own.length?`<div class="empty">All caught up ♡</div>`:""}</div>
    ${soon.length?`<div><span class="label">Coming up this week · ${soon.length}</span>${soon.map(rev).join("")}</div>`:""}
    ${later.length?`<details><summary class="label" style="cursor:pointer">Later · ${later.length}</summary>${later.map(rev).join("")}</details>`:""}
@@ -598,6 +657,50 @@ function todoCard(){
    </form></details>
    ${ownDone.length?`<details><summary class="small muted" style="cursor:pointer">My finished tasks (${ownDone.length})</summary>${ownDone.map(own_row).join("")}<div class="row" style="margin-top:8px"><button class="btn sm" id="cleardone">Clear finished tasks</button></div></details>`:""}
   </div>`;
+}
+/* Path image of the day: openly licensed Wikimedia Commons images matched to Pathoma high-yield topics.
+   Loaded from Commons on her phone; each card links to the file page with author and license. */
+const PATH_IMAGES=[{"id": "mi", "sys": "cardio", "file": "MI with contraction bands high mag.jpg", "q": "A 58-year-old man dies 2 days after crushing chest pain. His heart tissue looks like this (H&E, high power). What does it show?", "choices": ["Coagulative necrosis with contraction bands (acute MI)", "Caseous necrosis", "Granulation tissue (healing MI, 1–3 weeks)", "Dense collagen scar (old MI)"], "a": 0, "why": "Contraction bands form when calcium floods damaged myocytes, classically after reperfusion. MI timeline: 4–24 h coagulative necrosis, 1–3 days neutrophils, 3–7 days macrophages (highest rupture risk), 1–3 weeks granulation tissue, weeks to months a scar.", "pathoma": "Pathoma Ch. 8, Cardiac (ischemic heart disease)"}, {"id": "aschoff", "sys": "cardio", "file": "Rheumatic heart disease - high mag.jpg", "q": "A 9-year-old had a sore throat 3 weeks ago and now has a new murmur and migrating joint pain. Her heart shows lesions like this. What are they called?", "choices": ["Aschoff bodies", "Caseating granulomas", "Valve vegetations", "Schaumann bodies"], "a": 0, "why": "Aschoff bodies are foci of chronic inflammation and fibrinoid change with Anitschkow cells (caterpillar-shaped nuclei) in acute rheumatic fever. It's a type II hypersensitivity: antibodies to strep M protein cross-react with heart tissue. The mitral valve is hit most.", "pathoma": "Pathoma Ch. 8, Cardiac (rheumatic heart disease)"}, {"id": "ms", "sys": "cardio", "file": "Mitral stenosis, gross pathology 20G0015 lores.jpg", "q": "This valve is from a 45-year-old woman who grew up without access to antibiotics. She had dyspnea and an opening snap. Most likely cause?", "choices": ["Chronic rheumatic heart disease", "Infective endocarditis", "Myxomatous degeneration (mitral prolapse)", "Age-related calcification"], "a": 0, "why": "Thick leaflets with fused commissures give a 'fish-mouth' mitral stenosis, almost always from chronic rheumatic heart disease. Listen for an opening snap and a diastolic rumble. The left atrium enlarges, which leads to A-fib and mural thrombi.", "pathoma": "Pathoma Ch. 8, Cardiac (valvular disorders)"}, {"id": "athero", "sys": "cardio", "file": "Atherosclerosis, aorta, gross pathology PHIL 846 lores.jpg", "q": "This opened aorta is from a 70-year-old smoker. The raised yellow-white lesions are made of:", "choices": ["A fibrous cap over a lipid-rich necrotic core", "Small abscesses", "Calcified blood clots only", "Amyloid deposits"], "a": 0, "why": "Atherosclerotic plaques are an intimal fibrous cap (smooth muscle and collagen) over a necrotic core of cholesterol and foam cells. The abdominal aorta is the most common site, then coronaries, popliteal and carotid arteries. Complications: rupture with thrombosis, aneurysm, embolism.", "pathoma": "Pathoma Ch. 7, Vascular (atherosclerosis)"}, {"id": "tb", "sys": "immuno", "file": "Epithelioid cells in caseating tuberculous granuloma.jpg", "q": "A lung biopsy from a man with night sweats, weight loss and an upper-lobe cavity shows this granuloma. Which macrophage cytokine pushes CD4 T cells to become Th1 cells to build it?", "choices": ["IL-12", "IL-4", "IL-10", "IL-5"], "a": 0, "why": "Caseating granuloma = TB (or fungi). Macrophages make IL-12, which drives Th1 cells. Th1 cells make IFN-γ, which turns macrophages into epithelioid cells and giant cells. TNF-α holds granulomas together, so anti-TNF drugs can reactivate TB. Screen with PPD or IGRA first.", "pathoma": "Pathoma Ch. 2, Inflammation (granulomatous inflammation)"}, {"id": "ghon", "sys": "resp", "file": "Tuberculosis - Sub-pleural primary (Ghon) focus (6596011395).jpg", "q": "This small subpleural lesion was found at autopsy in someone with a positive TB skin test years ago. This lesion plus a matching hilar lymph node lesion is called:", "choices": ["Ghon complex", "Simon focus", "Caplan nodule", "Kerley lines"], "a": 0, "why": "Primary TB makes a subpleural Ghon focus (lower upper lobe or upper lower lobe). With hilar node involvement it's a Ghon complex; once it heals and calcifies, a Ranke complex. Reactivation (secondary) TB goes to the apex and cavitates.", "pathoma": "Pathoma Ch. 9, Respiratory (pneumonia & TB)"}, {"id": "sarc", "sys": "resp", "file": "Sarcoidosis - Lung granulomas (6076373789).jpg", "q": "A 32-year-old Black woman has bilateral hilar lymphadenopathy, and her lung shows these non-caseating granulomas. Which lab finding fits best?", "choices": ["High ACE and hypercalcemia", "Positive c-ANCA", "Anti-GBM antibodies", "Low serum IgA"], "a": 0, "why": "Non-caseating granulomas with bilateral hilar adenopathy = sarcoidosis. The epithelioid macrophages make 1α-hydroxylase, so more active vitamin D and hypercalcemia. ACE is elevated. It's a restrictive lung disease, treated with steroids.", "pathoma": "Pathoma Ch. 9, Respiratory (restrictive diseases)"}, {"id": "asb", "sys": "resp", "file": "Lung - Asbestosis - Asbestos body.jpg", "q": "This golden-brown, beaded 'dumbbell' body was found in the lung of a retired shipbuilder. What is he at highest risk of?", "choices": ["Bronchogenic carcinoma", "Caplan syndrome", "Hypersensitivity pneumonitis", "Pulmonary alveolar proteinosis"], "a": 0, "why": "Ferruginous (asbestos) bodies are asbestos fibers coated with iron (Prussian blue positive). Asbestosis hits the lower lobes and causes calcified pleural plaques. Lung cancer is the most common cancer it causes (more than mesothelioma), especially in smokers.", "pathoma": "Pathoma Ch. 9, Respiratory (pneumoconioses)"}, {"id": "sclc", "sys": "resp", "file": "Small cell carcinoma (3931938372).jpg", "q": "A heavy smoker has a central lung mass. The biopsy looks like this: small blue cells, scant cytoplasm, nuclear molding. Which complication fits best?", "choices": ["SIADH with hyponatremia", "Hypercalcemia from PTHrP", "Gynecomastia from hCG", "Hypertrophic osteoarthropathy only"], "a": 0, "why": "Small cell carcinoma is central and neuroendocrine (chromogranin and synaptophysin positive). Paraneoplastic: SIADH, ACTH (Cushing), Lambert-Eaton (antibodies to presynaptic calcium channels). Treated with chemo and radiation, not surgery. PTHrP hypercalcemia points to squamous cell.", "pathoma": "Pathoma Ch. 9, Respiratory (lung tumors)"}, {"id": "emph", "sys": "resp", "file": "Centrilobular emphysema 865 lores.jpg", "q": "This lung slice shows holes concentrated in the upper lobes (centrilobular pattern). Most likely cause?", "choices": ["Decades of smoking", "Alpha-1 antitrypsin deficiency", "Cystic fibrosis", "Asthma"], "a": 0, "why": "Centriacinar emphysema = smoking, upper lobes. Panacinar = alpha-1 antitrypsin deficiency, lower lobes (plus PAS-positive globules in the liver). Emphysema: more compliance, lower DLCO, FEV1/FVC under 0.7.", "pathoma": "Pathoma Ch. 9, Respiratory (obstructive diseases)"}, {"id": "kw", "sys": "renal", "file": "Nodular glomerulosclerosis.jpeg", "q": "This glomerulus is from a woman with 20 years of poorly controlled diabetes. The pink, round mesangial nodules are called:", "choices": ["Kimmelstiel-Wilson nodules", "Wire loops", "Crescents", "Spikes and domes"], "a": 0, "why": "Diabetic nephropathy: nonenzymatic glycation causes hyaline arteriolosclerosis (efferent more than afferent, so hyperfiltration), mesangial expansion and Kimmelstiel-Wilson nodules. Earliest sign is microalbuminuria; ACE inhibitors and ARBs slow it down.", "pathoma": "Pathoma Ch. 12, Kidney (nephrotic syndrome)"}, {"id": "cres", "sys": "renal", "file": "Crescentic glomerulonephritis - high mag.jpg", "q": "A patient has hemoptysis and a quickly rising creatinine. The kidney biopsy shows this crescent. The crescent is mostly made of:", "choices": ["Fibrin, parietal epithelial cells and macrophages", "Amyloid", "Lipid-laden podocytes", "IgA deposits only"], "a": 0, "why": "Rapidly progressive (crescentic) GN. Sort it by immunofluorescence: linear = Goodpasture (anti-GBM, type IV collagen); granular = immune complex (post-strep, lupus); pauci-immune = GPA (c-ANCA, PR3) or microscopic polyangiitis (p-ANCA, MPO).", "pathoma": "Pathoma Ch. 12, Kidney (nephritic syndrome)"}, {"id": "lupus", "sys": "immuno", "file": "Diffuse proliferative lupus nephritis.jpg", "q": "A 25-year-old woman with a malar rash has hematuria and proteinuria. Her kidney biopsy shows this diffuse proliferative pattern with 'wire-loop' capillaries. Where are the immune deposits?", "choices": ["Subendothelial", "Subepithelial 'humps' only", "Linear along the GBM (anti-GBM)", "None, it's pauci-immune"], "a": 0, "why": "Diffuse proliferative GN is the most common and most severe lupus nephritis. Subendothelial immune complexes thicken capillary walls into wire loops, with granular IF. It's a type III hypersensitivity: low C3/C4, anti-dsDNA.", "pathoma": "Pathoma Ch. 12, Kidney (nephritic syndrome)"}, {"id": "rcc", "sys": "renal", "file": "Clear cell renal cell carcinoma high mag.jpg", "q": "A 60-year-old smoker has hematuria, flank pain and a kidney mass. The tumor cells look like this. Which gene is most often lost?", "choices": ["VHL on chromosome 3p", "APC on 5q", "WT1 on 11p", "RB on 13q"], "a": 0, "why": "Clear cell RCC is the most common type; it comes from the proximal tubule and its cells are full of lipid and glycogen. VHL loss raises HIF, which raises VEGF and IGF-1. Paraneoplastic: EPO (polycythemia), PTHrP, renin, ACTH. It can invade the renal vein, causing a left varicocele.", "pathoma": "Pathoma Ch. 12, Kidney (renal tumors)"}, {"id": "pkd", "sys": "renal", "file": "Polycystic kidneys, gross pathology 20G0027 lores.jpg", "q": "These huge, cystic kidneys are from a 45-year-old with hypertension and a family history of kidney failure. Which finding is most linked?", "choices": ["Berry aneurysms", "Congenital hepatic fibrosis", "Wilms tumor", "Horseshoe kidney"], "a": 0, "why": "Autosomal dominant PKD (PKD1 on chr 16, PKD2 on chr 4) is bilateral and shows up in adults. Linked to berry aneurysms (subarachnoid bleed), mitral valve prolapse, liver cysts and diverticulosis. The infant form (ARPKD) comes with congenital hepatic fibrosis and Potter sequence.", "pathoma": "Pathoma Ch. 12, Kidney (congenital & cystic disease)"}, {"id": "amyloid", "sys": "cardio", "file": "Cardiac amyloidosis intermed mag.jpg", "q": "Heart muscle from an elderly man with restrictive cardiomyopathy shows pink, glassy material between the fibers (H&E). With Congo red under polarized light, it would look:", "choices": ["Apple-green", "Bright red, no birefringence", "Black", "Blue"], "a": 0, "why": "Amyloid is misfolded protein in β-pleated sheets: Congo red stain with apple-green birefringence. Senile cardiac amyloid is wild-type transthyretin; AL amyloid is immunoglobulin light chains (plasma cell disorders). In the heart: restrictive cardiomyopathy, thick walls, low-voltage ECG.", "pathoma": "Pathoma Ch. 1, Growth adaptations & cellular injury (amyloidosis)"}, {"id": "gpa", "sys": "immuno", "file": "Wegener's granulomatosis - very high mag.jpg", "q": "A man has chronic sinusitis, hemoptysis and hematuria. His lung shows necrotizing granulomatous vasculitis, like this. Which antibody is most likely positive?", "choices": ["c-ANCA (anti-PR3)", "p-ANCA (anti-MPO)", "Anti-dsDNA", "Anti-centromere"], "a": 0, "why": "Granulomatosis with polyangiitis hits the upper airway, lungs and kidneys (pauci-immune crescentic GN). c-ANCA, anti-PR3. Treat with steroids plus cyclophosphamide or rituximab. p-ANCA goes with microscopic polyangiitis and EGPA (Churg-Strauss: asthma plus eosinophils).", "pathoma": "Pathoma Ch. 7, Vascular (vasculitis)"}];
+const PATH_GAP=[1,3,7,14,30];
+let pathPick=null, pathChoice=null;
+function pathState(id){return S.pathimg.find(x=>x.id===id)}
+function pathQueue(){
+  const t0=today(), b=currentBlock();
+  const due=PATH_IMAGES.filter(p=>{const st=pathState(p.id);return st&&!st.done&&st.due<=t0}).sort((a,c)=>pathState(a.id).due.localeCompare(pathState(c.id).due));
+  const newToday=S.pathimg.filter(x=>x.first===t0).length;
+  const fresh=PATH_IMAGES.filter(p=>!pathState(p.id)).sort((a,c)=>(b.sys.includes(c.sys)?1:0)-(b.sys.includes(a.sys)?1:0));
+  return {due, next:newToday<1?fresh[0]:null, learned:S.pathimg.length};
+}
+function pathCard(){
+  const q=pathQueue();
+  let p=pathPick?PATH_IMAGES.find(x=>x.id===pathPick):null;
+  if(!p) p=q.due[0]||q.next;
+  if(!p) return `<div class="card"><span class="label">Path image of the day</span><div class="empty">All done for today ♡ ${q.learned} images in your rotation. Missed ones come back for review.</div></div>`;
+  const st=pathState(p.id), answered=pathChoice!=null&&pathPick===p.id;
+  const src="https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(p.file)+"?width=800";
+  const page="https://commons.wikimedia.org/wiki/File:"+encodeURIComponent(p.file.replace(/ /g,"_"));
+  return `<div class="card">
+   <div class="row" style="justify-content:space-between"><span class="label">Path image of the day${st?" · review":""}</span><span class="chip sys">${esc(SYS[p.sys]?.name||"")}</span></div>
+   <figure style="margin:0;display:grid;gap:4px"><img src="${src}" alt="Pathology image for this question" referrerpolicy="no-referrer" loading="lazy" style="width:100%;max-height:340px;object-fit:contain;border-radius:14px;background:var(--sunk)" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'empty',textContent:'The picture could not load (check your internet). You can still answer the question.'}))">
+   <figcaption class="small muted" style="font-size:11px">Image: <a href="${page}" target="_blank" rel="noopener" style="color:var(--muted)">Wikimedia Commons</a> (free license; author and license on that page)</figcaption></figure>
+   <p><b>${esc(p.q)}</b></p>
+   <div style="display:grid;gap:8px">${pathOrder(p).map((i,pos)=>{const c=p.choices[i], right=i===p.a, mine=i===pathChoice;
+     const cls=answered?(right?"g":mine?"r":""):"";
+     return `<button class="btn ${cls}" style="text-align:left;border-radius:14px" data-pathans="${p.id}:${i}" ${answered?"disabled":""}>${String.fromCharCode(65+pos)}. ${esc(c)}</button>`}).join("")}</div>
+   ${answered?`<div class="item"><b>${pathChoice===p.a?"Yes! ♡":"Not quite. It comes back tomorrow."}</b><p class="small">${esc(p.why)}</p><span class="small muted">Review in ${esc(p.pathoma)}</span>
+     <div class="row"><button class="btn sm primary" data-pathnext="1">${q.due.filter(x=>x.id!==p.id).length?"Next review":"Done"}</button></div></div>`:""}
+  </div>`;
+}
+/* Shuffle answer order per image (stable, so a review shows the same order). */
+function pathOrder(p){let h=0;for(const ch of p.id)h=(h*31+ch.charCodeAt(0))>>>0;const o=p.choices.map((_,i)=>i);for(let i=o.length-1;i>0;i--){h=(h*1103515245+12345)>>>0;const j=h%(i+1);[o[i],o[j]]=[o[j],o[i]]}return o}
+function answerPath(id,i){
+  const p=PATH_IMAGES.find(x=>x.id===id); if(!p) return;
+  const t0=today(), st=pathState(id), ok=i===p.a;
+  const stage=st?(ok?st.stage+1:0):(ok?1:0);
+  const done=stage>=PATH_GAP.length;
+  pathPick=id; pathChoice=i;
+  save("pathimg",id,{first:st?.first||t0,stage,done,due:done?"9999-12-31":addDays(t0,ok?PATH_GAP[Math.min(stage,PATH_GAP.length-1)]:1),history:[...(st?.history||[]),{d:t0,ok}]});
+  if(ok) toast("+3 XP ♡");
 }
 function toggleTodo(id){
   const t=S.todos.find(x=>x.id===id); if(!t) return;
@@ -638,6 +741,7 @@ function vToday(){
    </div>
    ${isEmpty()?`<div class="card" style="border-color:var(--accent)"><h2>Welcome to your app!</h2><p class="small">Bring over everything you logged before. Tap the button, then pick the backup file Claude sent you (it's in your Files app if you saved it there).</p><div class="row"><button class="btn primary" id="bk-load" data-armed="1">Bring over my progress</button></div></div>`:""}
    ${todoCard()}
+   ${dt!=="off"?pathCard():""}
    <div class="card">
      <h2>What kind of day is it?</h2>
      <div class="daypick">${Object.entries(DAYTYPES).map(([k,d])=>`<button class="btn" data-day="${k}" aria-pressed="${dt===k}">${d.label}</button>`).join("")}</div>
@@ -857,22 +961,35 @@ function vPlan(){
   const weakDis=DISCIPLINES.map(d=>[d,pct(S.blocks.filter(b=>b.dis===d))]).filter(x=>x[1]&&x[1].n>=10&&x[0]!=="Mixed").sort((a,b)=>a[1].p-b[1].p)[0];
   document.getElementById("v-plan").innerHTML=`
    <div class="card">
-    <span class="label">For my Nov 6 remediation meeting</span>
+    <span class="label">Updated after my Nov 6 counselor meeting</span>
     <h2>One review course, one question bank, one goal</h2>
-    <p>My goal is to pass an NBME self-assessment at <mark>67%</mark>, which lets me book the CBSE again. Bootcamp is my review course and sets the order of everything. UWorld is my only question bank, so I practice in the NBME/USMLE question style. First Aid is where I annotate and check facts. Sketchy is my visual memory for pharm and micro. NARQB is a short daily warm-up of 10–15 questions for broad active recall. I'm not using Anki. Instead, every topic goes through a fixed review schedule that this tracker runs for me.</p>
+    <p>My goal is to pass an NBME self-assessment at <mark>67%</mark>, which lets me book the CBSE again. Bootcamp is my review course and sets the order of everything. UWorld is my only question bank, so I practice in the NBME/USMLE question style. First Aid is where I annotate and check facts. Sketchy is my visual memory for pharm and micro. AMBOSS is my daily warm-up: 10 questions at 1–2 hammers in micro, biochem, immuno and pharm. HyGuru's free NBME Top Concepts course (about 14 hours) teaches me how the NBME asks questions. I'm not using Anki. Instead, every topic goes through a fixed review schedule that this tracker runs for me.</p>
     <div class="grid2">
      <div><span class="label">Progress so far</span><p class="num">${started}/${ALL_TOPICS.length} topics started · ${locked} locked in · ${S.blocks.reduce((a,b)=>a+(+b.n||0),0)} UWorld Qs${all?` at ${all.p}%`:""}</p></div>
      <div><span class="label">Weakest right now</span><p>${weakSys?`${weakSys[0]} (${weakSys[1].p}%)`:"Needs 10+ logged Qs"}${weakDis?` · ${weakDis[0]} (${weakDis[1].p}%)`:""}</p></div>
     </div>
    </div>
-   <div class="card"><h2>Order of systems</h2>
-    <p class="small muted">Weakest and highest-yield first, from my last CBSE. No fixed dates: I'm on my pediatrics rotation, so I go at my own pace and move to the next system when this one's topics are started and most reviews feel solid.</p>
-    <div class="phase"><span class="n">1</span><div><h3>Renal + Respiratory</h3><p class="small muted">Start here. Take a baseline self-assessment early, ideally before Nov 6.</p></div></div>
-    <div class="phase"><span class="n">2</span><div><h3>Endocrine + Reproductive</h3><p class="small muted">Self-assessment when this phase wraps up.</p></div></div>
-    <div class="phase"><span class="n">3</span><div><h3>Neuro + Psych</h3><p class="small muted">Self-assessment when this phase wraps up.</p></div></div>
-    <div class="phase"><span class="n">4</span><div><h3>Cardio</h3><p class="small muted">Self-assessment when this phase wraps up.</p></div></div>
-    <div class="phase"><span class="n">5</span><div><h3>Mixed review until 67%</h3><p class="small muted">Random timed 40-Q blocks, the weakest systems from the tracker, and regular self-assessments until I hit 67%.</p></div></div>
-    <p class="small"><b>Running through every phase:</b> pathology and physiology are filtered into every UWorld block. Nutrition gets about one small topic a week.</p>
+   <div class="card"><h2>Key dates</h2>
+    <div class="ladder">
+     <div class="rung"><span class="d">Nov 7</span><strong>New plan starts</strong><span class="small muted">Mixed blocks, AMBOSS, HyGuru, path images</span></div>
+     <div class="rung"><span class="d">Nov 30</span><strong>Self-assessment</strong><span class="small muted">End of block 1. HyGuru done.</span></div>
+     <div class="rung"><span class="d">Dec 4</span><strong>Counselor meeting</strong><span class="small muted">Bring the scores page</span></div>
+     <div class="rung"><span class="d">Mar 31</span><strong>Step 1 cutoff</strong><span class="small muted">Take and pass by then</span></div>
+    </div></div>
+   <div class="card"><h2>Mixed blocks, not one system at a time</h2>
+    <p class="small muted">My counselor's advice: study systems that work together at the same time, and do mixed question blocks across them. Renal, pulm, repro and endo are the heavy hitters, so improving them moves my score the most.</p>
+    <div class="phase"><span class="n">1</span><div><h3>Cardio + Pulm + Renal + Immuno</h3><p class="small muted">Now until my Nov 30 self-assessment. Each day, Bootcamp sections from a few of these systems and mixed UWorld blocks across all four. Focused blocks only when one system needs extra help.</p></div></div>
+    <div class="phase"><span class="n">2</span><div><h3>Repro + Endo + Biochem</h3><p class="small muted">Mixed the same way. Save the Dirty Medicine biochem playlist for my final week before the CBSE.</p></div></div>
+    <div class="phase"><span class="n">3</span><div><h3>Psych + Neuro brush-up</h3><p class="small muted">Already a strength. A weekly psych + ethics block keeps it strong until then.</p></div></div>
+    <div class="phase"><span class="n">4</span><div><h3>Mixed review until 67%</h3><p class="small muted">Random timed blocks, weakest systems from the tracker, and self-assessments.</p></div></div>
+    <p class="small"><b>Every day:</b> AMBOSS 10 (micro, biochem, immuno, pharm), mixed UWorld to reach 40 questions (25 on clinic days), a path image, and about an hour of HyGuru. <b>Every week:</b> one psych + ethics block.</p>
+   </div>
+   <div class="card"><h2>My targets</h2>
+    <div class="meter"><span>Pathology</span><div class="bar target"><i style="width:73%"></i></div><span class="num">70–75</span></div>
+    <div class="meter"><span>Renal + Resp</span><div class="bar target"><i style="width:68%"></i></div><span class="num">65–69</span></div>
+    <div class="meter"><span>Endo + Repro</span><div class="bar target"><i style="width:68%"></i></div><span class="num">65–69</span></div>
+    <div class="meter"><span>Neuro + Psych</span><div class="bar target"><i style="width:68%"></i></div><span class="num">65–69</span></div>
+    <p class="small muted">Pathology is the big one: low to mid 70s. The path image of the day on the Today tab helps me spot classic images fast.</p>
    </div>
    <div class="card"><h2>Review schedule for every topic</h2>
     <p class="small muted">After each Bootcamp video, the topic comes back on these days. If it felt shaky it comes back sooner. If I was lost it comes back tomorrow.</p>
@@ -927,7 +1044,12 @@ document.addEventListener("click",e=>{
   const t=e.target.closest("button"); if(!t) return;
   if(t.dataset.start) startTopic(t.dataset.start);
   else if(t.dataset.watched) finishWatching(t.dataset.watched);
-  else if(t.dataset.narqb){const t0=today(); if(S.narqb.find(x=>x.id===t0)) remove("narqb",t0); else {save("narqb",t0,{done:true}); toast("NARQB done ♡ +3 XP");}}
+  else if(t.dataset.amboss){const t0=today(); if(S.amboss.find(x=>x.id===t0)) remove("amboss",t0); else {save("amboss",t0,{done:true,n:10}); toast("AMBOSS done ♡ +5 XP");}}
+  else if(t.dataset.hg!==undefined){const t0=today(),add=+t.dataset.hg,cur=+(S.hyguru.find(x=>x.id===t0)?.min||0);
+    if(add===0||(add===60&&t.classList.contains("heartbox")&&cur>=60)) remove("hyguru",t0); else {save("hyguru",t0,{min:cur+add}); toast("HyGuru +"+add+" min ♡");}}
+  else if(t.dataset.weekly){const w=t.dataset.weekly; if(S.weekly.find(x=>x.id===w)) remove("weekly",w); else {save("weekly",w,{done:true,d:today()}); toast("Psych + ethics done this week ♡ +5 XP");}}
+  else if(t.dataset.pathans){const [id,i]=t.dataset.pathans.split(":"); answerPath(id,+i);}
+  else if(t.dataset.pathnext){pathPick=null; pathChoice=null; render();}
   else if(t.dataset.rev){ratingFor=null; review(t.dataset.rev,t.dataset.c);}
   else if(t.dataset.fix){const m=S.misses.find(x=>x.id===t.dataset.fix);if(m){const {id,...rest}=m;save("misses",id,{...rest,fixed:!m.fixed});if(!m.fixed)toast("+5 XP")}}
   else if(t.dataset.reset){ if(t.dataset.armed){remove("progress",t.dataset.reset)} else {t.dataset.armed="1";t.textContent="Tap again to reset";setTimeout(()=>{if(t.isConnected){delete t.dataset.armed;t.textContent="Reset"}},3000)} }
@@ -954,7 +1076,7 @@ document.addEventListener("submit",e=>{
     save("blocks",newId(),{d:v("b-d"),sys:v("b-sys"),dis:v("b-dis"),mode:v("b-mode"),n,correct:c}); toast("Block saved · now log your misses");}
   if(f.id==="fmiss"){save("misses",newId(),{d:today(),concept:v("m-c").trim(),qid:v("m-q").replace(/\D/g,""),topic:v("m-topic"),sys:v("m-sys"),dis:v("m-dis"),why:v("m-why"),fixed:false}); toast("+3 XP · it'll come back as a flashback");}
   if(f.id==="ftodo"){save("todos",newId(),{text:v("td-text").trim(),cat:v("td-cat"),done:false,doneAt:"",created:new Date().toISOString()}); toast("Added to your list ♡");}
-  if(f.id==="fnarqb"){const c=v("nq-c"),n=v("nq-n"); if(n){ if(+c>+n){toast("Correct can't be more than the total");return} save("narqb",today(),{done:true,n:+n,correct:c===""?null:+c}); toast("Saved ♡");}}
+  if(f.id==="fnarqb"){const c=v("nq-c"),n=v("nq-n"); if(n){ if(+c>+n){toast("Correct can't be more than the total");return} save("amboss",today(),{done:true,scored:true,n:+n,correct:c===""?null:+c}); toast("Saved ♡");}}
   if(f.id==="fverse"){save("verses",newId(),{ref:v("vr-ref").trim(),text:v("vr-text").trim()}); toast("Added ♡ it'll show up in the rotation");}
   if(f.id==="fscore"){const p=+v("s-p"); save("scores",newId(),{d:v("s-d"),form:v("s-f").trim(),pct:p}); toast(p>=67?"67 reached. Time to book the CBSE!":"Saved. "+(67-p)+" points to go");}
 });
